@@ -131,33 +131,32 @@
   .gotime p b{font-weight:600;color:var(--ink)}
 
   /* ---------- CONNECT ---------- */
-  .connect{padding:120px 0 50px;background:var(--bone)}
-  .connect .head{text-align:center;margin-bottom:56px}
-  .connect .head h2{font-weight:500;font-size:clamp(36px,5vw,68px);letter-spacing:-0.025em}
-  .connect-grid{display:grid;grid-template-columns:1.9fr 1fr;gap:30px;align-items:start}
-  .yt-card{position:relative;background:var(--bone-soft);border:1px solid var(--hairline);border-radius:14px;padding:30px;display:flex;gap:22px;align-items:flex-end}
-  .yt-card .standing{width:160px;flex-shrink:0}
-  .yt-card .thumb{border-radius:8px;overflow:hidden;flex:1}
-  .yt-link{display:inline-flex;align-items:center;gap:8px;font-weight:600;margin-top:18px;color:var(--teal)}
-  .yt-link:hover{text-decoration:underline}
-  .ig-card{background:var(--ink);color:#fff;border-radius:14px;padding:24px}
-  .ig-card .handle{font-family:var(--sans);font-weight:600;letter-spacing:.10em;font-size:13px;color:var(--sky);margin-bottom:16px;text-transform:uppercase}
-  .ig-card .post{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.10);border-radius:10px;padding:18px;font-size:15px;line-height:1.5;color:var(--cream-on-ink)}
-  .ig-card .post em{color:var(--sky)}
-  .ig-card .post b{color:#fff;font-weight:600}
-  .ig-foot{margin-top:18px;height:96px;border-radius:14px;background:var(--gradient);display:flex;align-items:center;justify-content:center;gap:16px}
-  .ig-foot a{width:38px;height:38px;border-radius:50%;background:rgba(0,0,0,.78);color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px}
+  .connect{padding:120px 0;background:var(--bone)}
+  .connect-head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:54px}
+  .connect-head h2{font-weight:500;font-size:clamp(36px,5vw,68px);letter-spacing:-0.025em}
+  .connect-head .lede{max-width:480px}
+  .channels{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .channel{display:flex;flex-direction:column;gap:6px;padding:26px;border:1px solid var(--hairline);border-radius:16px;background:var(--bone-soft);transition:transform .2s,box-shadow .25s,border-color .2s}
+  .channel:hover{transform:translateY(-4px);box-shadow:0 18px 40px -24px rgba(27,29,34,.45);border-color:var(--hairline-2)}
+  .ch-mark{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:20px;font-weight:700;margin-bottom:14px}
+  .ch-mark.yt{background:#FF0000}
+  .ch-mark.ig{background:var(--gradient)}
+  .ch-mark.tt{background:#000}
+  .ch-mark.li{background:#0A66C2;font-family:var(--sans);font-size:18px;font-weight:700}
+  .ch-name{font-family:var(--serif);font-size:22px;font-weight:500;letter-spacing:-0.01em}
+  .ch-handle{font-size:14px;color:var(--muted)}
+  .ch-go{margin-top:16px;display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:600;color:var(--teal)}
+  .channel:hover .ch-go .arr{transform:translateX(4px)}
 
-  .latest{padding:60px 0 90px;background:var(--bone)}
-  .latest h3{font-family:var(--serif);font-weight:500;font-size:34px;letter-spacing:-0.02em;margin-bottom:26px;display:flex;align-items:center;gap:16px}
-  .latest h3::after{content:"";flex:1;height:1px;background:var(--hairline-2)}
-  .posts{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
-  .post-tile{aspect-ratio:3/4;border-radius:10px;display:flex;align-items:flex-end;padding:15px;color:#fff;font-size:13px;line-height:1.3;font-weight:500;background:#222}
-  .post-tile:nth-child(1){background:linear-gradient(180deg,#5a3a3a,#3a2525)}
-  .post-tile:nth-child(2){background:var(--ink)}
-  .post-tile:nth-child(3){background:linear-gradient(180deg,#6d7682,#3f454d)}
-  .post-tile:nth-child(4){background:linear-gradient(180deg,#243042,#161d28)}
-  .post-tile:nth-child(5){background:var(--ink)}
+  .connect-cta{margin-top:22px;background:var(--ink);border-radius:20px;padding:48px clamp(28px,4vw,56px);display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center}
+  .connect-cta h3{color:#fff;font-family:var(--serif);font-weight:500;font-size:clamp(26px,3vw,38px);line-height:1.12;letter-spacing:-0.018em;margin:10px 0 12px}
+  .connect-cta h3 em{color:var(--sky)}
+  .connect-cta p{color:var(--cream-on-ink);font-size:16px;max-width:440px}
+  .cc-form{display:flex;gap:12px}
+  .cc-form input{flex:1;padding:15px 20px;border-radius:100px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.06);color:#fff;font-family:var(--sans);font-size:15px;outline:none}
+  .cc-form input::placeholder{color:rgba(250,246,239,.5)}
+  .cc-form input:focus{border-color:var(--sky)}
+  .cc-form .btn{flex-shrink:0}
 
   /* ---------- FOOTER ---------- */
   .pre-footer{position:relative;height:300px;overflow:hidden}
@@ -179,10 +178,10 @@
     .about-text{padding:64px 28px}
     .about-text .name{font-size:62px}
     .about-media{min-height:380px}
-    .connect-grid{grid-template-columns:1fr}
-    .yt-card{flex-direction:column;align-items:stretch}
-    .yt-card .standing{display:none}
-    .posts{grid-template-columns:repeat(2,1fr)}
+    .connect-head{grid-template-columns:1fr;gap:18px;align-items:start}
+    .channels{grid-template-columns:1fr 1fr}
+    .connect-cta{grid-template-columns:1fr;gap:24px}
+    .cc-form{flex-direction:column}
     .foot-grid{grid-template-columns:1fr 1fr}
     .logos{gap:28px}
     .logos span{font-size:17px}
@@ -291,40 +290,51 @@
 <!-- ===== CONNECT ===== -->
 <section class="connect">
   <div class="container">
-    <div class="head">
-      <div class="eyebrow">Stay close</div>
-      <h2>Connect with Chris</h2>
-    </div>
-    <div class="connect-grid">
+    <div class="connect-head">
       <div>
-        <div class="yt-card">
-          <img src="me.png" class="standing" alt="Chris Ford">
-          <div class="thumb"><img src="chris-hat-c-logo.png" alt="Watch Chris on YouTube"></div>
-        </div>
-        <a href="#" class="yt-link">Watch Chris' YouTube videos <span class="arr">&rarr;</span></a>
+        <div class="eyebrow">Stay close</div>
+        <h2>Connect with <em>Chris</em></h2>
       </div>
-      <div>
-        <div class="ig-card">
-          <div class="handle">@itschrisford_</div>
-          <div class="post">Most people think price is the objection. It's not. The real objection is <b>belief</b> — <em>belief in you, your offer, or themselves.</em></div>
-        </div>
-        <div class="ig-foot">
-          <a href="#">IG</a><a href="#">YT</a><a href="#">TT</a><a href="#">SP</a><a href="#">PC</a>
-        </div>
-      </div>
+      <p class="lede">New breakdowns on persuasion, positioning, and the psychology of the sale — every week, across every channel. Pick your platform and follow along.</p>
     </div>
-  </div>
 
-  <div class="latest">
-    <div class="container">
-      <h3>Latest posts</h3>
-      <div class="posts">
-        <div class="post-tile">When a buyer says "Let me think about it"…</div>
-        <div class="post-tile">GRR taking a hit? It started in the demo.</div>
-        <div class="post-tile"></div>
-        <div class="post-tile">Define the gap between where they are…</div>
-        <div class="post-tile">If you're waiting until you're an "expert"…</div>
+    <div class="channels">
+      <a href="https://youtube.com/@itschrisford_" target="_blank" rel="noopener" class="channel">
+        <span class="ch-mark yt">▶</span>
+        <span class="ch-name">YouTube</span>
+        <span class="ch-handle">@itschrisford_</span>
+        <span class="ch-go">Subscribe <span class="arr">&rarr;</span></span>
+      </a>
+      <a href="https://instagram.com/itschrisford_" target="_blank" rel="noopener" class="channel">
+        <span class="ch-mark ig">◎</span>
+        <span class="ch-name">Instagram</span>
+        <span class="ch-handle">@itschrisford_</span>
+        <span class="ch-go">Follow <span class="arr">&rarr;</span></span>
+      </a>
+      <a href="https://tiktok.com/@itschrisford_" target="_blank" rel="noopener" class="channel">
+        <span class="ch-mark tt">♪</span>
+        <span class="ch-name">TikTok</span>
+        <span class="ch-handle">@itschrisford_</span>
+        <span class="ch-go">Follow <span class="arr">&rarr;</span></span>
+      </a>
+      <a href="https://linkedin.com/in/itschrisford" target="_blank" rel="noopener" class="channel">
+        <span class="ch-mark li">in</span>
+        <span class="ch-name">LinkedIn</span>
+        <span class="ch-handle">Chris Ford</span>
+        <span class="ch-go">Connect <span class="arr">&rarr;</span></span>
+      </a>
+    </div>
+
+    <div class="connect-cta">
+      <div class="cc-text">
+        <div class="eyebrow on-ink">The newsletter</div>
+        <h3>One idea a week that makes people say <em>yes.</em></h3>
+        <p>Join founders and operators getting the science of selling — short, sharp, and free.</p>
       </div>
+      <form class="cc-form" onsubmit="return false">
+        <input type="email" placeholder="you@company.com" aria-label="Email address" required>
+        <button type="submit" class="btn btn-on-ink">Subscribe <span class="arr">&rarr;</span></button>
+      </form>
     </div>
   </div>
 </section>
@@ -357,11 +367,11 @@
 <script>
   (function(){
     var WORDS=[
-      ["Offer","#f8a982"],["Company","#31d1be"],["Message","#a884f8"],
-      ["Idea","#ee777f"],["Story","#458af3"],["Brand","#85daa2"],
-      ["Reputation","#f3b340"],["Presentation","#ffb6a6"],["Pitch","#3a53f5"],
-      ["Content","#7981f5"],["Business","#d7a083"],["Communication","#b3f241"],
-      ["Speech","#f4468b"],["Keynote","#41f2d2"],["Webinar","#fc4492"]
+      ["offer","#f8a982"],["company","#31d1be"],["message","#a884f8"],
+      ["idea","#ee777f"],["story","#458af3"],["brand","#85daa2"],
+      ["reputation","#f3b340"],["presentation","#ffb6a6"],["pitch","#3a53f5"],
+      ["content","#7981f5"],["business","#d7a083"],["communication","#b3f241"],
+      ["speech","#f4468b"],["keynote","#41f2d2"],["webinar","#fc4492"]
     ];
     var typed=document.getElementById('typed'),caret=document.getElementById('caret');
     var wi=0,ci=0,deleting=false;
