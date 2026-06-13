@@ -173,6 +173,47 @@
   .cc-form input:focus{border-color:var(--sky)}
   .cc-form .btn{flex-shrink:0}
 
+  /* ---------- CHRIS' STORY ---------- */
+  .story{background:var(--bone);padding:120px 0 0}
+  .story-intro{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;margin-bottom:80px}
+  .story-intro .eyebrow{margin-bottom:18px}
+  .story-intro h2{font-weight:500;font-size:clamp(40px,5.4vw,72px);line-height:1.02;letter-spacing:-0.027em}
+  .story-intro .lede{margin-top:24px;max-width:540px}
+  .story-byline{margin-top:30px;display:flex;align-items:center;gap:14px}
+  .story-byline img{width:48px;height:48px;border-radius:50%;object-fit:cover;object-position:center top;flex-shrink:0}
+  .story-byline .nm{font-weight:600;font-size:15px}
+  .story-byline .rl{color:var(--muted);font-size:13px}
+  .story-hero-photo{border-radius:18px;overflow:hidden;aspect-ratio:4/5;background:var(--bone-soft)}
+  .story-hero-photo img{width:100%;height:100%;object-fit:contain}
+  .story-origin-head{margin-bottom:30px}
+  .story-origin-head h3{font-weight:500;font-size:clamp(28px,3.6vw,48px);line-height:1.08;letter-spacing:-0.02em;max-width:900px}
+  .beat{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;padding:54px 0;border-top:1px solid var(--hairline)}
+  .beat.first{border-top:0;padding-top:24px}
+  .beat.img-right .beat-media{order:2}
+  .beat-media{border-radius:18px;overflow:hidden;aspect-ratio:4/3;background:var(--bone-soft)}
+  .beat-media img{width:100%;height:100%;object-fit:cover}
+  .beat-meta{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--teal);margin-bottom:14px}
+  .beat-text h3{font-family:var(--serif);font-weight:500;font-size:clamp(24px,2.6vw,34px);line-height:1.1;letter-spacing:-0.015em;margin-bottom:16px}
+  .beat-text p{color:var(--ink-soft);font-size:16.5px;margin-bottom:14px}
+  .beat-text p:last-child{margin-bottom:0}
+  .beat-text a{color:var(--teal);text-decoration:underline;text-underline-offset:2px;font-style:italic}
+  .story-note{border-top:1px solid var(--hairline);padding-top:60px;margin-top:10px;max-width:700px}
+  .story-note .eyebrow{margin-bottom:18px}
+  .story-note .big{font-family:var(--serif);font-style:italic;font-size:clamp(22px,2.4vw,32px);line-height:1.22;letter-spacing:-0.02em;margin:0 0 20px;color:var(--ink)}
+  .story-note p{color:var(--muted);line-height:1.7;margin-bottom:26px}
+  .story-lesson{background:var(--ink);color:#fff;padding:clamp(80px,9vw,130px) 0;margin-top:90px}
+  .story-lesson .eyebrow{color:var(--sky);margin-bottom:26px}
+  .story-lesson blockquote{margin:0;max-width:860px;font-family:var(--serif);font-style:italic;font-size:clamp(24px,3.4vw,46px);line-height:1.13;letter-spacing:-0.022em;color:var(--bone)}
+  .story-lesson .story-byline{margin-top:36px}
+  .story-lesson .story-byline .nm{color:#fff}
+  .story-lesson .story-byline .rl{color:rgba(250,246,239,.6)}
+  .story-lesson .story-byline img{border:2px solid rgba(255,255,255,.2)}
+  .story-stats-sec{background:var(--bone);padding:clamp(80px,9vw,120px) 0}
+  .story-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:46px}
+  .story-stat{border-top:2px solid var(--hairline-2);padding-top:20px}
+  .story-stat .n{font-family:var(--serif);font-size:clamp(30px,3.4vw,48px);line-height:.95;letter-spacing:-0.03em}
+  .story-stat .l{margin-top:10px;font-size:14px;color:var(--muted);line-height:1.45}
+
   /* ---------- FOOTER ---------- */
   .pre-footer{position:relative;height:300px;overflow:hidden}
   .pre-footer::before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(18,19,24,.18),rgba(18,19,24,.18)),url('prof-ig.png') center/cover}
@@ -193,6 +234,11 @@
     .about-text{padding:64px 28px}
     .about-text .name{font-size:62px}
     .about-media{min-height:380px}
+    .story-intro{grid-template-columns:1fr;gap:30px}
+    .story-hero-photo{aspect-ratio:4/3}
+    .beat{grid-template-columns:1fr;gap:24px;padding:40px 0}
+    .beat.img-right .beat-media{order:0}
+    .story-stats{grid-template-columns:1fr 1fr;gap:28px}
     .connect-head{grid-template-columns:1fr;gap:18px;align-items:start}
     .channels{grid-template-columns:1fr 1fr}
     .connect-cta{grid-template-columns:1fr;gap:24px}
@@ -210,6 +256,7 @@
   <nav>
     <a href="#" class="logo"><img src="cford.png" alt="Chris Ford"></a>
     <div class="navlinks">
+      <a href="#chris-story">Chris' Story</a>
       <div class="nav-item has-menu" id="companiesItem">
         <button class="nav-trigger" aria-haspopup="true" aria-expanded="false">Portfolio Companies <span class="chev" aria-hidden="true">&#9662;</span></button>
         <div class="nav-menu" role="menu">
@@ -251,6 +298,172 @@
     <a href="#" class="btn btn-primary">Let's grow your business <span class="arr">&rarr;</span></a>
   </div>
   <div class="about-media" aria-label="Chris Ford"></div>
+</section>
+
+<!-- ===== CHRIS' STORY ===== -->
+<section class="story" id="chris-story">
+  <div class="container">
+    <div class="story-intro">
+      <div>
+        <div class="eyebrow">Chris' Story</div>
+        <h2>I built this because I know what it costs to have the <em>wrong plan.</em></h2>
+        <p class="lede">I spent four years in college chasing a career I never entered. What happened next — and what I learned in a hospital pharmacy basement — is why everything I do today exists.</p>
+        <div class="story-byline">
+          <img src="prof-ig.png" alt="Chris Ford">
+          <div>
+            <div class="nm">Chris Ford</div>
+            <div class="rl">Founder, The Narrative Companies&trade;</div>
+          </div>
+        </div>
+      </div>
+      <div class="story-hero-photo"><img src="cf-design.png" alt="Chris Ford"></div>
+    </div>
+
+    <div class="story-origin-head">
+      <div class="eyebrow">The origin</div>
+      <h3>Four years. Multiple rejections. <em>Then one call changed everything.</em></h3>
+    </div>
+
+    <div class="beat first img-right">
+      <div class="beat-media"><img src="chris-basketball.png" alt="Chris with his high school basketball team"></div>
+      <div class="beat-text">
+        <div class="beat-meta">Before any of it</div>
+        <h3>Basketball was my whole identity. Until it wasn't.</h3>
+        <p>I spent my entire childhood chasing the league. 6'1", could shoot the lights out — and about 150 pounds soaking wet. The NBA was never happening, and the day I finally admitted it, the only identity I'd ever had shattered. It was all I knew.</p>
+        <p>But all those hours in the gym taught me one thing that stuck: the smallest details are what separate the great from the average. It wouldn't get me to the league — but it would make me dangerous at something else.</p>
+      </div>
+    </div>
+
+    <div class="beat">
+      <div class="beat-media"><img src="chris-nc-state.png" alt="NC State 2008"></div>
+      <div class="beat-text">
+        <div class="beat-meta">2008 — 2012</div>
+        <h3>So I went to college to start over.</h3>
+        <p>I showed up at NC State pre-med, chasing a brand-new dream: anesthesiology. It didn't take long to realize it was wildly expensive and probably out of reach — so I switched my focus to physical therapy and started volunteering at athletic recovery clinics. New plan. Felt solid.</p>
+        <p>I didn't really question it. That's what you do — pick a path, go to school for it, follow the plan. I didn't know anyone who'd done it any other way.</p>
+      </div>
+    </div>
+
+    <div class="beat img-right">
+      <div class="beat-media"><img src="chris-storytelling.png" alt="Chris producing music in college"></div>
+      <div class="beat-text">
+        <div class="beat-meta">2011</div>
+        <h3>Then I found music.</h3>
+        <p>My roommate left a MIDI keyboard lying around. I "borrowed" it, never gave it back, and started producing. I wrote songs, worked with artists, and fell hard for cadence, rhythm, and the craft of telling a story that makes people feel something. Two buddies and I even opened for a Nappy Roots concert with nothing but our own self-produced songs.</p>
+        <p>I didn't know it yet — but this, not the degree, was the skill that would change my life.</p>
+      </div>
+    </div>
+
+    <div class="beat">
+      <div class="beat-media"><img src="chris-graduation.png" alt="Graduation 2012"></div>
+      <div class="beat-text">
+        <div class="beat-meta">2012</div>
+        <h3>I graduated. Then PT school said no.</h3>
+        <p>Four years flew by. I crossed the stage with a degree, a pile of debt — and then PT school rejected me. Just like that, the plan I'd built my life around was gone, and I was starting over. Again.</p>
+        <p>I had absolutely no idea what to do next. Nobody ever teaches you how to figure that out. The plan was supposed to work.</p>
+      </div>
+    </div>
+
+    <div class="beat img-right">
+      <div class="beat-media"><img src="chris-pharmacy.png" alt="Hospital pharmacy"></div>
+      <div class="beat-text">
+        <div class="beat-meta">2012</div>
+        <h3>So I took a job in a hospital pharmacy basement.</h3>
+        <p>No windows. No sunlight. Counting pills at 4:30 in the morning, with the slow, sinking realization that this could be the next forty years of my life if something didn't change.</p>
+        <p>I started firing off job applications — anything to get out. But I had no story, no direction, and no idea how to talk about myself in a way that made anyone care.</p>
+      </div>
+    </div>
+
+    <div class="beat">
+      <div class="beat-media"><img src="chris-will-barfield.png" alt="Will Barfield"></div>
+      <div class="beat-text">
+        <div class="beat-meta">2013</div>
+        <h3>Then a stranger named Will Barfield called.</h3>
+        <p>A recruiter. He'd stumbled onto my résumé and figured it was a long shot, but asked if I'd ever thought about tech sales. I had no idea what tech sales even was. I took the call anyway — anything beat counting pills at 4:30 a.m.</p>
+        <p>That one conversation set the course of the next decade of my life. Not a degree. Not a plan. One stranger who saw something on a page and picked up the phone. I got lucky. Most kids never get that call.</p>
+      </div>
+    </div>
+
+    <div class="beat img-right">
+      <div class="beat-media"><img src="chris-relias.png" alt="Chris's first sales office"></div>
+      <div class="beat-text">
+        <div class="beat-meta">2013</div>
+        <h3>The phone felt like it weighed 250 pounds.</h3>
+        <p>My first sales job: an SDR making 50 cold calls a day — to behavioral health clinics and correctional facilities. Yes, that means I spent my days cold-calling prison wardens. (No, they were not thrilled to hear from me.) I was terrified — my palms still clam up thinking about it.</p>
+        <p>But that job taught me the single most important skill of my career: how to grab a stranger's attention, hold it, and turn it into a yes. Attention is currency. And storytelling, I realized, was just selling — and selling was just storytelling.</p>
+      </div>
+    </div>
+
+    <div class="beat">
+      <div class="beat-media"><img src="chris-presidents-club.png" alt="Chris with his team at President's Club"></div>
+      <div class="beat-text">
+        <div class="beat-meta">2015 — 2022</div>
+        <h3>Then I climbed. Fast.</h3>
+        <p>Account Executive selling to Fortune 500 CEOs. President's Club. I helped one company get acquired for $540M and another grow from a few million to $30M in two years. Along the way, I interviewed and hired thousands of people.</p>
+        <p>And I watched the same thing happen over and over: the most qualified person in the room rarely won. The one who could tell their story did. Every single time.</p>
+      </div>
+    </div>
+
+    <div class="beat img-right">
+      <div class="beat-media"><img src="book-cover.jpg" alt="How to Sell with Story"></div>
+      <div class="beat-text">
+        <div class="beat-meta">2023</div>
+        <h3>So I built the framework — and wrote a book.</h3>
+        <p>I turned everything I'd learned into a repeatable storytelling framework, copyrighted it, and used it to drive over $28.6M in sales and shape go-to-market at companies that grew to billion-dollar valuations. I trained thousands of people on it. Then I wrote the book on it: <a href="https://www.amazon.com/How-Sell-Story-Message-Faster/dp/B0FV3L6LKT/" target="_blank" rel="noopener">How to Sell with Story</a>.</p>
+        <p>None of it — not one dollar — came from my degree. It came from a skill nobody ever taught me, that I stumbled into by pure luck.</p>
+      </div>
+    </div>
+
+    <div class="beat">
+      <div class="beat-media"><img src="chris-office-wide.png" alt="Chris Ford today"></div>
+      <div class="beat-text">
+        <div class="beat-meta">Now</div>
+        <h3>Now I teach it on purpose.</h3>
+        <p>I spent a decade learning to tell a story that makes the right person say yes. So now I teach it — to founders, to sellers, and to people standing exactly where I stood: capable, but invisible on paper, waiting to be picked.</p>
+        <p>I want every one of them to tell their story so clearly they're impossible to ignore. Capable people shouldn't have to get lucky to be seen.</p>
+      </div>
+    </div>
+
+    <div class="story-note">
+      <div class="eyebrow">A personal note</div>
+      <p class="big">"That call from Will changed the course of my life. I didn't earn it — I got lucky. Everything I build now exists so the next person doesn't have to."</p>
+      <p>When you work with me, you get me — not a handoff to a staff coach or a junior hire. The person who built this is the person in the room with you.</p>
+      <div class="story-byline">
+        <img src="prof-ig.png" alt="Chris Ford">
+        <div>
+          <div class="nm">Chris Ford</div>
+          <div class="rl">Founder, The Narrative Companies&trade;</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="story-lesson">
+    <div class="container">
+      <div class="eyebrow">The lesson</div>
+      <blockquote>"The thing that changed my life wasn't a degree. It was one person who took a shot on me. Everything I build now exists so you don't have to wait for a lucky phone call."</blockquote>
+      <div class="story-byline">
+        <img src="prof-ig.png" alt="Chris Ford">
+        <div>
+          <div class="nm">Chris Ford</div>
+          <div class="rl">Founder, The Narrative Companies&trade;</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="story-stats-sec">
+    <div class="container">
+      <div class="eyebrow">By the numbers</div>
+      <h3 style="font-weight:500;font-size:clamp(28px,3.4vw,44px);line-height:1.08;letter-spacing:-0.02em;margin-top:14px;max-width:820px">The same skill, <em>now pointed at you.</em></h3>
+      <div class="story-stats">
+        <div class="story-stat"><div class="n">$28.6M+</div><div class="l">in sales driven by his storytelling framework</div></div>
+        <div class="story-stat"><div class="n">$540M</div><div class="l">acquisition he helped close</div></div>
+        <div class="story-stat"><div class="n">1,000s</div><div class="l">of people interviewed, hired, and trained</div></div>
+        <div class="story-stat"><div class="n">10+ yrs</div><div class="l">mastering the psychology of why people say yes</div></div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- ===== KNOWN FROM ===== -->
