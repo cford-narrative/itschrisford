@@ -214,6 +214,22 @@
   .story-stat .n{font-family:var(--serif);font-size:clamp(30px,3.4vw,48px);line-height:.95;letter-spacing:-0.03em}
   .story-stat .l{margin-top:10px;font-size:14px;color:var(--muted);line-height:1.45}
 
+  /* ---------- PORTFOLIO COMPANIES ---------- */
+  .portfolio{background:var(--bone);padding:clamp(80px,9vw,120px) 0;scroll-margin-top:80px}
+  .portfolio-head{max-width:760px;margin-bottom:50px}
+  .portfolio-head .eyebrow{margin-bottom:18px}
+  .portfolio-head h2{font-weight:500;font-size:clamp(34px,4.6vw,60px);line-height:1.04;letter-spacing:-0.025em}
+  .portfolio-head p{margin-top:20px;color:var(--ink-soft);font-size:18px;max-width:620px}
+  .portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .pf-card{display:flex;flex-direction:column;padding:32px;border:1px solid var(--hairline);border-radius:18px;background:var(--bone-soft);scroll-margin-top:90px;transition:transform .2s,box-shadow .25s,border-color .2s}
+  .pf-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px -24px rgba(27,29,34,.4);border-color:var(--hairline-2)}
+  .pf-card .pf-name{font-family:var(--serif);font-weight:500;font-size:26px;letter-spacing:-0.015em;line-height:1.1}
+  .pf-card .pf-tag{margin-top:8px;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--teal)}
+  .pf-card .pf-desc{margin-top:18px;color:var(--ink-soft);font-size:15.5px;line-height:1.55;flex:1}
+  .pf-card .pf-link{margin-top:26px;display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--teal)}
+  .pf-card:hover .pf-link .arr{transform:translateX(4px)}
+  .pf-card .pf-link:hover{text-decoration:underline}
+
   /* ---------- BOOK FEATURE ---------- */
   .bookfeature{background:var(--bone-soft);padding:clamp(80px,9vw,130px) 0}
   .bookfeature-grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:60px;align-items:center}
@@ -253,6 +269,7 @@
     .story-stats{grid-template-columns:1fr 1fr;gap:28px}
     .bookfeature-grid{grid-template-columns:1fr;gap:36px}
     .bookfeature-media img{max-width:300px}
+    .portfolio-grid{grid-template-columns:1fr}
     .connect-head{grid-template-columns:1fr;gap:18px;align-items:start}
     .channels{grid-template-columns:1fr 1fr}
     .connect-cta{grid-template-columns:1fr;gap:24px}
@@ -274,12 +291,12 @@
       <div class="nav-item has-menu" id="companiesItem">
         <button class="nav-trigger" aria-haspopup="true" aria-expanded="false">Portfolio Companies <span class="chev" aria-hidden="true">&#9662;</span></button>
         <div class="nav-menu" role="menu">
-          <a href="https://narrativerevenue.com" target="_blank" rel="noopener" role="menuitem">Narrative Revenue</a>
-          <a href="https://narrativecareers.com" target="_blank" rel="noopener" role="menuitem">Narrative Careers</a>
-          <a href="https://narrativestoryselling.com" target="_blank" rel="noopener" role="menuitem">Narrative StorySelling&trade;</a>
+          <a href="#revenue" role="menuitem">Narrative Revenue</a>
+          <a href="#careers" role="menuitem">Narrative Careers</a>
+          <a href="#storyselling" role="menuitem">Narrative StorySelling&trade;</a>
         </div>
       </div>
-      <a href="https://www.amazon.com/How-Sell-Story-Message-Faster/dp/B0FV3L6LKT/" target="_blank" rel="noopener">The Book</a>
+      <a href="#book">The Book</a>
       <a href="contact.html" class="btn btn-ghost-light">Get in touch</a>
     </div>
   </nav>
@@ -537,6 +554,37 @@
   </div>
 </section>
 
+<!-- ===== PORTFOLIO COMPANIES ===== -->
+<section class="portfolio" id="portfolio">
+  <div class="container">
+    <div class="portfolio-head">
+      <div class="eyebrow">Portfolio Companies</div>
+      <h2>One anchor. <em>Three companies.</em></h2>
+      <p>Every Narrative company runs on the same idea — communicate your value so clearly you're impossible to ignore. Here's where that work lives.</p>
+    </div>
+    <div class="portfolio-grid">
+      <div class="pf-card" id="revenue">
+        <div class="pf-name">Narrative Revenue</div>
+        <div class="pf-tag">Get paid what you're worth</div>
+        <div class="pf-desc">Sales consultancy for coaches, consultants, and founders. The behavioral science of why buyers say yes — so you can sell what you already do, without ever feeling like someone you're not.</div>
+        <a href="https://narrativerevenue.com" target="_blank" rel="noopener" class="pf-link">Visit narrativerevenue.com <span class="arr">&rarr;</span></a>
+      </div>
+      <div class="pf-card" id="careers">
+        <div class="pf-name">Narrative Careers</div>
+        <div class="pf-tag">Don't leave your story to luck</div>
+        <div class="pf-desc">Career storytelling for capable people who are invisible on paper. Learn to tell your story so clearly the right person finally says yes — no lucky phone call required.</div>
+        <a href="https://narrativecareers.com" target="_blank" rel="noopener" class="pf-link">Visit narrativecareers.com <span class="arr">&rarr;</span></a>
+      </div>
+      <div class="pf-card" id="storyselling">
+        <div class="pf-name">Narrative StorySelling&trade;</div>
+        <div class="pf-tag">The framework</div>
+        <div class="pf-desc">The copyrighted storytelling system behind it all — the repeatable framework that's driven $28.6M+ in sales and trained hundreds of people to turn their message into money.</div>
+        <a href="https://narrativestoryselling.com" target="_blank" rel="noopener" class="pf-link">Visit narrativestoryselling.com <span class="arr">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ===== CONNECT ===== -->
 <section class="connect">
   <div class="container">
@@ -589,7 +637,7 @@
 </section>
 
 <!-- ===== BOOK FEATURE ===== -->
-<section class="bookfeature">
+<section class="bookfeature" id="book">
   <div class="container bookfeature-grid">
     <div class="bookfeature-media">
       <img src="book-cover.jpg" alt="How to Sell with Story by Chris Ford">
