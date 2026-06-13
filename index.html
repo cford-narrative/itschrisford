@@ -79,6 +79,16 @@
   .nav-item:hover .nav-menu,.nav-item.open .nav-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
   .nav-menu a{display:block;padding:11px 14px;border-radius:9px;color:var(--ink-soft);font-size:14.5px;font-weight:500;white-space:nowrap}
   .nav-menu a:hover{background:var(--bone-soft);color:var(--teal)}
+  .nav-toggle{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:6px;z-index:60}
+  .nav-toggle span{display:block;width:26px;height:2px;background:#fff;border-radius:2px;transition:transform .25s,opacity .2s}
+  .nav-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .nav-toggle.open span:nth-child(2){opacity:0}
+  .nav-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .mobile-menu{display:none;position:absolute;top:100%;left:0;right:0;background:var(--ink);padding:10px 22px 22px;flex-direction:column;border-top:1px solid rgba(255,255,255,.1);box-shadow:0 28px 44px -22px rgba(0,0,0,.65);z-index:50}
+  .mobile-menu.open{display:flex}
+  .mobile-menu a{color:rgba(255,255,255,.92);font-size:17px;font-weight:500;padding:14px 4px;border-bottom:1px solid rgba(255,255,255,.08)}
+  .mobile-menu a:hover{color:#fff}
+  .mobile-menu .mm-cta{margin-top:16px;text-align:center;background:#fff;color:var(--ink);border-radius:100px;padding:15px;font-weight:600;border-bottom:0}
 
   /* ---------- HERO ---------- */
   .hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;color:#fff;overflow:hidden;background:#15161a}
@@ -148,12 +158,12 @@
   .gotime p b{font-weight:600;color:var(--ink)}
 
   /* ---------- CONNECT ---------- */
-  .connect{padding:120px 0;background:var(--bone)}
+  .connect{padding:120px 0;background:var(--bone-soft)}
   .connect-head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:54px}
   .connect-head h2{font-weight:500;font-size:clamp(36px,5vw,68px);letter-spacing:-0.025em}
   .connect-head .lede{max-width:480px}
   .channels{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-  .channel{display:flex;flex-direction:column;gap:6px;padding:26px;border:1px solid var(--hairline);border-radius:16px;background:var(--bone-soft);transition:transform .2s,box-shadow .25s,border-color .2s}
+  .channel{display:flex;flex-direction:column;gap:6px;padding:26px;border:1px solid var(--hairline);border-radius:16px;background:var(--bone);transition:transform .2s,box-shadow .25s,border-color .2s}
   .channel:hover{transform:translateY(-4px);box-shadow:0 18px 40px -24px rgba(27,29,34,.45);border-color:var(--hairline-2)}
   .ch-mark{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:20px;font-weight:700;margin-bottom:14px}
   .ch-mark.yt{background:#FF0000}
@@ -176,7 +186,7 @@
   .cc-form .btn{flex-shrink:0}
 
   /* ---------- CHRIS' STORY ---------- */
-  .story{background:var(--bone);padding:120px 0 0}
+  .story{background:var(--bone-soft);padding:120px 0 0}
   .story-intro{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;margin-bottom:80px}
   .story-intro .eyebrow{margin-bottom:18px}
   .story-intro h2{font-weight:500;font-size:clamp(40px,5.4vw,72px);line-height:1.02;letter-spacing:-0.027em}
@@ -233,7 +243,7 @@
   .pf-card .pf-link:hover{text-decoration:underline}
 
   /* ---------- BOOK FEATURE ---------- */
-  .bookfeature{background:var(--bone-soft);padding:clamp(80px,9vw,130px) 0}
+  .bookfeature{background:var(--bone);padding:clamp(80px,9vw,130px) 0}
   .bookfeature-grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:60px;align-items:center}
   .bookfeature-media{display:flex;justify-content:center}
   .bookfeature-media img{width:100%;max-width:340px;border-radius:4px;transform:rotate(-3deg);filter:drop-shadow(0 34px 54px rgba(27,29,34,.32))}
@@ -260,11 +270,16 @@
 
   /* ---------- RESPONSIVE ---------- */
   @media(max-width:900px){
+    nav{padding:18px 22px}
     .navlinks{display:none}
+    .nav-toggle{display:flex}
+    .hero h1{font-size:clamp(40px,12vw,80px)}
+    .hero .lede{font-size:16px;margin-top:24px}
     .about{grid-template-columns:1fr}
-    .about-text{padding:64px 28px}
+    .about-text{padding:56px 24px}
     .about-text .name{font-size:62px}
-    .about-media{min-height:380px}
+    .about-media{min-height:340px}
+    .story{padding-top:72px}
     .story-intro{grid-template-columns:1fr;gap:30px}
     .story-hero-photo{aspect-ratio:4/3}
     .beat{grid-template-columns:1fr;gap:24px;padding:40px 0}
@@ -280,6 +295,24 @@
     .foot-grid{grid-template-columns:1fr 1fr}
     .logos{gap:28px}
     .logos span{font-size:17px}
+  }
+  @media(max-width:560px){
+    nav{padding:16px 18px}
+    .container{padding:0 22px}
+    .hero h1{font-size:clamp(34px,11.5vw,60px)}
+    .hero{min-height:92vh}
+    .about-text{padding:48px 22px}
+    .about-text .name{font-size:52px}
+    .known{padding:48px 0}
+    .logos{gap:18px 26px}
+    .logos span{font-size:15px}
+    .quote{padding:72px 22px}
+    .charge,.proven,.gotime{padding-left:22px;padding-right:22px}
+    .channels{grid-template-columns:1fr}
+    .story-stats{grid-template-columns:1fr 1fr;gap:22px}
+    .foot-grid{grid-template-columns:1fr;gap:26px}
+    .connect-cta{padding:36px 24px}
+    .bookfeature-media img{max-width:240px}
   }
 </style>
 </head>
@@ -302,7 +335,18 @@
       <a href="#book">The Book</a>
       <a href="contact.html" class="btn btn-ghost-light">Get in touch</a>
     </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#chris-story">Chris' Story</a>
+    <a href="#revenue">Narrative Revenue</a>
+    <a href="#careers">Narrative Careers</a>
+    <a href="#storyselling">Narrative StorySelling&trade;</a>
+    <a href="#book">The Book</a>
+    <a href="contact.html" class="mm-cta">Get in touch</a>
+  </div>
 </header>
 
 <!-- ===== HERO ===== -->
@@ -784,6 +828,19 @@
     });
     document.addEventListener('click',function(){item.classList.remove('open');trigger.setAttribute('aria-expanded','false');});
     document.addEventListener('keydown',function(e){if(e.key==='Escape'){item.classList.remove('open');trigger.setAttribute('aria-expanded','false');}});
+  })();
+
+  /* ---- Mobile menu toggle ---- */
+  (function(){
+    var t=document.getElementById('navToggle'),m=document.getElementById('mobileMenu');
+    if(!t||!m)return;
+    function close(){m.classList.remove('open');t.classList.remove('open');t.setAttribute('aria-expanded','false');}
+    t.addEventListener('click',function(){
+      var open=m.classList.toggle('open');
+      t.classList.toggle('open',open);
+      t.setAttribute('aria-expanded',open?'true':'false');
+    });
+    m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',close);});
   })();
 
 </script>
