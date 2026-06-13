@@ -82,7 +82,9 @@
   .hero h1 .caret{display:inline-block;width:3px;height:.82em;margin-left:4px;vertical-align:-0.06em;background:currentColor;color:var(--sky);animation:blink 1s steps(1) infinite}
   @keyframes blink{50%{opacity:0}}
   .hero .lede{margin-top:30px;max-width:600px;color:var(--cream-on-ink)}
-  .hero .scroll{position:absolute;bottom:34px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+  .hero .scroll{position:absolute;bottom:30px;display:flex;flex-direction:column;align-items:center;gap:8px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+  .hero .scroll-arrow{font-size:18px;line-height:1;animation:scrollbob 1.8s ease-in-out infinite}
+  @keyframes scrollbob{0%,100%{transform:translateY(0);opacity:.55}50%{transform:translateY(5px);opacity:1}}
 
   /* ---------- ABOUT ---------- */
   .about{background:var(--bone);display:grid;grid-template-columns:1.05fr .95fr;align-items:stretch}
@@ -213,7 +215,7 @@
   <div class="hero-overlay"></div>
   <h1>Make your <span class="typed" id="typed"></span><span class="caret" id="caret"></span><br>impossible to ignore.</h1>
   <p class="lede">The science-backed revenue system for mission-based founders who want to scale their business without selling harder or shouting louder.</p>
-  <div class="scroll">Scroll</div>
+  <div class="scroll">Scroll<span class="scroll-arrow" aria-hidden="true">&darr;</span></div>
 </section>
 
 <!-- ===== ABOUT ===== -->
