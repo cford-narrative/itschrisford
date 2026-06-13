@@ -75,6 +75,9 @@
   .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(20,21,26,.62),rgba(20,21,26,.68)),url('me.png') center/cover;z-index:-1}
   .hero h1{font-size:clamp(54px,8.6vw,124px);line-height:.98;font-weight:500;letter-spacing:-0.03em;max-width:1080px}
   .hero h1 em{color:var(--sky);font-style:italic}
+  .hero h1 .typed{font-style:italic;color:var(--sky);transition:color .25s}
+  .hero h1 .caret{display:inline-block;width:3px;height:.82em;margin-left:4px;vertical-align:-0.06em;background:currentColor;color:var(--sky);animation:blink 1s steps(1) infinite}
+  @keyframes blink{50%{opacity:0}}
   .hero .lede{margin-top:30px;max-width:600px;color:var(--cream-on-ink)}
   .hero .scroll{position:absolute;bottom:34px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.6)}
 
@@ -204,7 +207,7 @@
 
 <!-- ===== HERO ===== -->
 <section class="hero">
-  <h1>Make your <em>reputation</em><br>impossible to ignore.</h1>
+  <h1>Make your <span class="typed" id="typed"></span><span class="caret" id="caret"></span><br>impossible to ignore.</h1>
   <p class="lede">The science-backed revenue system for mission-based founders who want to scale their business without selling harder or shouting louder.</p>
   <div class="scroll">Scroll</div>
 </section>
@@ -351,5 +354,33 @@
   </div>
 </footer>
 
+<script>
+  (function(){
+    var WORDS=[
+      ["Offer","#f8a982"],["Company","#31d1be"],["Message","#a884f8"],
+      ["Idea","#ee777f"],["Story","#458af3"],["Brand","#85daa2"],
+      ["Reputation","#f3b340"],["Presentation","#ffb6a6"],["Pitch","#3a53f5"],
+      ["Content","#7981f5"],["Business","#d7a083"],["Communication","#b3f241"],
+      ["Speech","#f4468b"],["Keynote","#41f2d2"],["Webinar","#fc4492"]
+    ];
+    var typed=document.getElementById('typed'),caret=document.getElementById('caret');
+    var wi=0,ci=0,deleting=false;
+    var TYPE=85,ERASE=45,HOLD=1500,GAP=350;
+    function tick(){
+      var word=WORDS[wi][0],color=WORDS[wi][1];
+      typed.style.color=color;caret.style.color=color;
+      if(!deleting){
+        ci++;typed.textContent=word.slice(0,ci);
+        if(ci===word.length){deleting=true;return setTimeout(tick,HOLD);}
+        setTimeout(tick,TYPE);
+      }else{
+        ci--;typed.textContent=word.slice(0,ci);
+        if(ci===0){deleting=false;wi=(wi+1)%WORDS.length;return setTimeout(tick,GAP);}
+        setTimeout(tick,ERASE);
+      }
+    }
+    tick();
+  })();
+</script>
 </body>
 </html>
