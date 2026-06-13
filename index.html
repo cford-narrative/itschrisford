@@ -71,8 +71,11 @@
   .navlinks a:hover{color:#fff}
 
   /* ---------- HERO ---------- */
-  .hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;color:#fff;overflow:hidden}
-  .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(20,21,26,.62),rgba(20,21,26,.68)),url('me.png') center/cover;z-index:-1}
+  .hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;color:#fff;overflow:hidden;background:#15161a}
+  .hero-video{position:absolute;inset:0;z-index:0;overflow:hidden;background:#15161a url('me.png') center/cover}
+  .hero-video iframe{position:absolute;top:50%;left:50%;width:100vw;height:56.25vw;min-height:100vh;min-width:177.78vh;transform:translate(-50%,-50%);border:0;pointer-events:none}
+  .hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(rgba(20,21,26,.58),rgba(20,21,26,.64))}
+  .hero h1,.hero .lede,.hero .scroll{position:relative;z-index:2}
   .hero h1{font-size:clamp(54px,8.6vw,124px);line-height:.98;font-weight:500;letter-spacing:-0.03em;max-width:1080px}
   .hero h1 em{color:var(--sky);font-style:italic}
   .hero h1 .typed{font-style:italic;color:var(--sky);transition:color .25s}
@@ -206,6 +209,8 @@
 
 <!-- ===== HERO ===== -->
 <section class="hero">
+  <div class="hero-video"><div id="heroPlayer"></div></div>
+  <div class="hero-overlay"></div>
   <h1>Make your <span class="typed" id="typed"></span><span class="caret" id="caret"></span><br>impossible to ignore.</h1>
   <p class="lede">The science-backed revenue system for mission-based founders who want to scale their business without selling harder or shouting louder.</p>
   <div class="scroll">Scroll</div>
@@ -367,7 +372,7 @@
 <script>
   (function(){
     var WORDS=[
-      ["offer","#f8a982"],["company","#31d1be"],["message","#a884f8"],
+      ["company","#31d1be"],["offer","#f8a982"],["message","#a884f8"],
       ["idea","#ee777f"],["story","#458af3"],["brand","#85daa2"],
       ["reputation","#f3b340"],["presentation","#ffb6a6"],["pitch","#3a53f5"],
       ["content","#7981f5"],["business","#d7a083"],["communication","#b3f241"],
@@ -390,6 +395,35 @@
       }
     }
     tick();
+  })();
+
+  /* ---- Hero background video (YouTube clip 0:00–0:57, looped) ---- */
+  (function(){
+    var CLIP_START=0,CLIP_END=57,player;
+    var tag=document.createElement('script');
+    tag.src='https://www.youtube.com/iframe_api';
+    document.head.appendChild(tag);
+    window.onYouTubeIframeAPIReady=function(){
+      player=new YT.Player('heroPlayer',{
+        videoId:'Uw3tlvSBpjE',
+        playerVars:{autoplay:1,mute:1,controls:0,disablekb:1,fs:0,
+          modestbranding:1,rel:0,playsinline:1,iv_load_policy:3,
+          start:CLIP_START,end:CLIP_END},
+        events:{
+          onReady:function(e){
+            e.target.mute();e.target.playVideo();
+            setInterval(function(){
+              if(player&&player.getCurrentTime&&player.getCurrentTime()>=CLIP_END){
+                player.seekTo(CLIP_START);player.playVideo();
+              }
+            },250);
+          },
+          onStateChange:function(e){
+            if(e.data===YT.PlayerState.ENDED){player.seekTo(CLIP_START);player.playVideo();}
+          }
+        }
+      });
+    };
   })();
 </script>
 </body>
