@@ -7,146 +7,182 @@
 <link rel="icon" href="ChrisFord-favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700;1,800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,500;1,8..60,600&family=Inter+Tight:wght@400;500;600;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --navy:#15146b;
-    --navy-deep:#0f0e4d;
-    --cream:#f4f0e6;
-    --gold:#e8a93a;
-    --yellow:#e6ff3b;
-    --ink:#161616;
-    --dark:#1d1d1d;
+    /* ---- Narrative house palette ---- */
+    --bone:#fcf8f2;
+    --bone-soft:#f3ece1;
+    --bone-dark:#ece3d4;
+    --ink:#1B1D22;
+    --ink-soft:rgba(27,29,34,0.72);
+    --muted:rgba(27,29,34,0.62);
+    --hairline:rgba(27,29,34,0.14);
+    --hairline-2:rgba(27,29,34,0.30);
+    --teal:#0F4761;
+    --sky:#8ecbe2;
+    --pink:#E921A8;
+    --purple:#B163E6;
+    --powder:#a883f8;
+    --gradient:linear-gradient(90deg,#E921A8 0%,#B163E6 50%,#a883f8 100%);
+    --cream-on-ink:rgba(250,246,239,0.82);
+    --serif:'Source Serif 4','Georgia',serif;
+    --sans:'Inter Tight',ui-sans-serif,system-ui,sans-serif;
+    --script:'Caveat',cursive;
+    --maxw:1180px;
   }
   *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{font-family:'Poppins',sans-serif;color:var(--ink);background:#fff;line-height:1.6}
+  html{scroll-behavior:smooth;overflow-x:hidden}
+  body{font-family:var(--sans);background:var(--bone);color:var(--ink);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;letter-spacing:-0.005em}
   img{max-width:100%;display:block}
   a{color:inherit;text-decoration:none}
-  .wrap{max-width:1240px;margin:0 auto;padding:0 28px}
-  .serif{font-family:'Playfair Display',serif}
-  .script{font-family:'Caveat',cursive}
-  .btn{display:inline-block;padding:15px 34px;border-radius:40px;font-weight:700;letter-spacing:.04em;font-size:14px;text-transform:uppercase;transition:.2s}
-  .btn-navy{background:var(--navy);color:#fff}
-  .btn-navy:hover{background:var(--navy-deep)}
-  .btn-yellow{background:var(--yellow);color:var(--ink)}
-  .btn-yellow:hover{filter:brightness(.95)}
-  .btn-outline{border:1.5px solid #fff;color:#fff;border-radius:40px}
-  .btn-outline:hover{background:#fff;color:var(--ink)}
+  /* paper texture */
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:200;opacity:.07;mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+
+  h1,h2,h3,h4{font-family:var(--serif);font-weight:500;letter-spacing:-0.018em;line-height:1.04}
+  em,.it{font-style:italic;color:var(--teal);font-weight:500}
+  .container{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+  .eyebrow{font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.20em;text-transform:uppercase;color:var(--teal)}
+  .eyebrow.on-ink{color:var(--sky)}
+  .lede{font-size:18px;line-height:1.6;color:var(--muted)}
+
+  /* buttons */
+  .btn{display:inline-flex;align-items:center;gap:9px;padding:15px 28px;border-radius:100px;font-family:var(--sans);font-size:15px;font-weight:500;letter-spacing:.005em;transition:transform .2s cubic-bezier(.2,.7,.2,1),background .18s,color .18s,box-shadow .2s;line-height:1}
+  .btn:hover{transform:translateY(-1px)}
+  .btn .arr{transition:transform .25s}
+  .btn:hover .arr{transform:translateX(4px)}
+  .btn-primary{background:var(--ink);color:var(--bone)}
+  .btn-primary:hover{background:var(--teal);box-shadow:0 12px 26px -14px rgba(27,29,34,.5)}
+  .btn-on-ink{background:var(--bone);color:var(--ink)}
+  .btn-on-ink:hover{background:var(--sky);color:var(--ink)}
+  .btn-ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1px var(--hairline-2)}
+  .btn-ghost:hover{background:var(--ink);color:var(--bone)}
+  .btn-ghost-light{background:transparent;color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.6)}
+  .btn-ghost-light:hover{background:#fff;color:var(--ink)}
 
   /* ---------- NAV ---------- */
-  header{position:absolute;top:0;left:0;right:0;z-index:20}
-  nav{display:flex;align-items:center;justify-content:space-between;padding:26px 40px}
+  header{position:absolute;top:0;left:0;right:0;z-index:30}
+  nav{display:flex;align-items:center;justify-content:space-between;padding:24px 40px}
   .logo{display:inline-block;line-height:0}
-  .logo img{height:26px;width:auto}
-  .navlinks{display:flex;align-items:center;gap:34px}
-  .navlinks a{color:#fff;font-size:15px;font-weight:500}
-  .navlinks a:hover{opacity:.7}
-  .cart{color:#fff;display:flex;align-items:center;gap:6px;font-weight:500}
+  .logo img{height:24px;width:auto}
+  .navlinks{display:flex;align-items:center;gap:30px}
+  .navlinks a{color:rgba(255,255,255,.92);font-size:15px;font-weight:500}
+  .navlinks a:hover{color:#fff}
 
   /* ---------- HERO ---------- */
   .hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;color:#fff;overflow:hidden}
-  .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(40,38,30,.72),rgba(40,38,30,.72)),url('me.png') center/cover;filter:blur(4px);transform:scale(1.05);z-index:-1}
-  .hero h1{font-size:clamp(54px,9vw,140px);line-height:.96;font-weight:400;max-width:1100px}
-  .hero h1 em{color:var(--gold);font-style:normal}
-  .hero p{margin-top:34px;max-width:640px;font-size:18px;color:#e9e6df}
+  .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(20,21,26,.62),rgba(20,21,26,.68)),url('me.png') center/cover;z-index:-1}
+  .hero h1{font-size:clamp(54px,8.6vw,124px);line-height:.98;font-weight:500;letter-spacing:-0.03em;max-width:1080px}
+  .hero h1 em{color:var(--sky);font-style:italic}
+  .hero .lede{margin-top:30px;max-width:600px;color:var(--cream-on-ink)}
+  .hero .scroll{position:absolute;bottom:34px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.6)}
 
   /* ---------- ABOUT ---------- */
-  .about{background:var(--cream);display:grid;grid-template-columns:1fr 1fr;align-items:stretch}
-  .about-text{padding:90px 70px}
-  .about-text .hi{font-weight:800;font-size:22px;letter-spacing:.05em}
-  .about-text .name{font-size:90px;line-height:.8;margin:-6px 0 30px;color:var(--ink)}
-  .about-text h3{font-weight:800;font-size:20px;margin-bottom:18px}
-  .about-text p{font-size:16px;color:#33312c;margin-bottom:16px}
+  .about{background:var(--bone);display:grid;grid-template-columns:1.05fr .95fr;align-items:stretch}
+  .about-text{padding:110px 70px}
+  .about-text .eyebrow{margin-bottom:6px}
+  .about-text .name{font-family:var(--script);font-size:84px;line-height:.8;margin:0 0 28px;color:var(--ink)}
+  .about-text h3{font-family:var(--serif);font-size:30px;font-weight:500;margin-bottom:22px;letter-spacing:-0.015em}
+  .about-text p{font-size:16.5px;color:var(--ink-soft);margin-bottom:16px}
+  .about-text p b{font-weight:600;color:var(--ink)}
   .about-text .btn{margin-top:18px}
-  .about-media{background:var(--navy);background:url('chris-hat-c-logo.png') center/cover;min-height:560px}
+  .about-media{background:url('chris-hat-c-logo.png') center/cover;min-height:600px}
 
-  /* ---------- KNOWN FROM ---------- */
-  .known{background:var(--dark);color:#fff;text-align:center;padding:46px 0}
-  .known h4{font-size:15px;letter-spacing:.16em;font-weight:700;margin-bottom:30px}
-  .logos{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:54px;opacity:.95}
-  .logos span{font-weight:700;font-size:22px;letter-spacing:.02em}
-  .quote{text-align:center;padding:80px 28px}
-  .quote h2{font-weight:800;font-size:clamp(26px,3.4vw,40px);max-width:1000px;margin:0 auto;line-height:1.18}
-  .quote .by{margin-top:26px;font-size:22px;color:#444}
+  /* ---------- KNOWN FROM (ink band) ---------- */
+  .known{background:var(--ink);color:#fff;text-align:center;padding:64px 0}
+  .known .eyebrow{margin-bottom:30px}
+  .logos{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:54px;opacity:.92}
+  .logos span{font-family:var(--sans);font-weight:600;font-size:20px;letter-spacing:.01em}
 
-  /* ---------- CHARGE BAND ---------- */
-  .charge{position:relative;color:#fff;text-align:center;padding:120px 28px;overflow:hidden}
-  .charge::before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(20,20,20,.45),rgba(20,20,20,.55)),url('cf-design.png') center/cover;z-index:-1}
-  .charge h2{font-weight:400;font-size:clamp(30px,4.4vw,56px);max-width:1100px;margin:0 auto;line-height:1.12}
-  .charge h2 u{text-decoration-color:var(--yellow);text-decoration-thickness:3px;text-underline-offset:6px}
-  .charge h2 .ring{position:relative}
-  .charge h2 .ring::after{content:"";position:absolute;left:-10px;right:-10px;top:-8px;bottom:-8px;border:3px solid var(--yellow);border-radius:50%}
-  .charge .ctas{margin-top:44px;display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+  /* ---------- QUOTE ---------- */
+  .quote{text-align:center;padding:110px 28px;background:var(--bone)}
+  .quote.alt{background:var(--bone-soft)}
+  .quote h2{font-family:var(--serif);font-weight:500;font-style:italic;font-size:clamp(28px,3.8vw,46px);max-width:1000px;margin:0 auto;line-height:1.2;letter-spacing:-0.018em}
+  .quote .by{margin-top:26px;font-family:var(--script);font-size:30px;color:var(--teal)}
+
+  /* ---------- CHARGE BAND (ink) ---------- */
+  .charge{position:relative;color:#fff;text-align:center;padding:130px 28px;overflow:hidden;background:var(--ink)}
+  .charge::before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(20,21,26,.74),rgba(20,21,26,.82)),url('cf-design.png') center/cover;z-index:0}
+  .charge .container{position:relative;z-index:1}
+  .charge h2{font-family:var(--serif);font-weight:500;font-size:clamp(30px,4.4vw,58px);max-width:1040px;margin:0 auto;line-height:1.12;letter-spacing:-0.02em}
+  .charge h2 em{color:var(--sky);font-style:italic}
+  .charge .ctas{margin-top:42px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
 
   /* ---------- PROVEN SYSTEM ---------- */
   .proven{position:relative;color:#fff;padding:150px 0;overflow:hidden}
-  .proven::before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(15,15,20,.55),rgba(15,15,20,.7)),url('prof-ig.png') center/cover;z-index:-1}
-  .proven h2{font-weight:800;font-size:clamp(34px,5vw,68px);line-height:1.02;text-transform:uppercase;max-width:1000px}
-  .proven h2 em{font-style:italic}
-  .proven p{max-width:1050px;margin:30px 0 40px;font-size:18px}
-  .proven p b{font-weight:700}
+  .proven::before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(18,19,24,.6),rgba(18,19,24,.74)),url('prof-ig.png') center/cover;z-index:0}
+  .proven .container{position:relative;z-index:1}
+  .proven .eyebrow{margin-bottom:18px}
+  .proven h2{font-weight:500;font-size:clamp(36px,5.2vw,72px);line-height:1.02;max-width:1000px;letter-spacing:-0.022em}
+  .proven h2 em{color:var(--sky);font-style:italic}
+  .proven p{max-width:980px;margin:28px 0 38px;font-size:18px;color:var(--cream-on-ink)}
+  .proven p b{font-weight:600;color:#fff}
 
   /* ---------- GO TIME ---------- */
-  .gotime{background:var(--cream);text-align:center;padding:120px 28px}
-  .gotime h2{font-weight:800;font-size:clamp(40px,6vw,82px);line-height:1;text-transform:uppercase;position:relative;display:inline-block}
-  .gotime h2::after{content:"";display:block;width:230px;height:10px;margin:6px auto 0;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='230' height='14'><path d='M3 11 Q115 2 227 8' stroke='%23e6ff3b' stroke-width='5' fill='none' stroke-linecap='round'/></svg>") no-repeat}
-  .gotime p{max-width:1050px;margin:40px auto;font-size:18px;color:#2b2b2b}
-  .gotime p b{font-weight:700}
+  .gotime{background:var(--bone-soft);text-align:center;padding:130px 28px}
+  .gotime .eyebrow{margin-bottom:18px}
+  .gotime h2{font-weight:500;font-size:clamp(40px,5.8vw,82px);line-height:1.02;letter-spacing:-0.028em}
+  .gotime h2 em{color:var(--teal);font-style:italic}
+  .gotime p{max-width:920px;margin:32px auto 38px;font-size:18px;color:var(--ink-soft)}
+  .gotime p b{font-weight:600;color:var(--ink)}
 
   /* ---------- CONNECT ---------- */
-  .connect{padding:90px 0 40px;text-align:center}
-  .connect > h2{font-weight:800;font-size:clamp(40px,6vw,80px);text-transform:uppercase;margin-bottom:50px}
-  .connect-grid{display:grid;grid-template-columns:2fr 1fr;gap:34px;align-items:start;text-align:left}
-  .yt-card{position:relative;background:var(--cream);border-radius:6px;padding:34px;display:flex;gap:20px;align-items:center}
-  .yt-card .standing{width:170px;flex-shrink:0;align-self:flex-end}
-  .yt-card .thumb{border-radius:4px;overflow:hidden;flex:1}
-  .yt-link{display:block;text-align:right;font-weight:700;margin-top:16px;text-decoration:underline}
-  .ig-card{background:#000;color:#fff;border-radius:6px;padding:22px}
-  .ig-card .handle{font-weight:800;letter-spacing:.04em;margin-bottom:16px}
-  .ig-card .post{background:#111;border-radius:6px;padding:18px;font-size:14px;line-height:1.5}
-  .ig-card .post b{font-weight:700}
-  .social-yellow{background:var(--yellow);border-radius:6px;margin-top:24px;height:120px;display:flex;align-items:center;justify-content:center;gap:18px}
-  .social-yellow a{width:40px;height:40px;border-radius:50%;background:#000;color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px}
+  .connect{padding:120px 0 50px;background:var(--bone)}
+  .connect .head{text-align:center;margin-bottom:56px}
+  .connect .head h2{font-weight:500;font-size:clamp(36px,5vw,68px);letter-spacing:-0.025em}
+  .connect-grid{display:grid;grid-template-columns:1.9fr 1fr;gap:30px;align-items:start}
+  .yt-card{position:relative;background:var(--bone-soft);border:1px solid var(--hairline);border-radius:14px;padding:30px;display:flex;gap:22px;align-items:flex-end}
+  .yt-card .standing{width:160px;flex-shrink:0}
+  .yt-card .thumb{border-radius:8px;overflow:hidden;flex:1}
+  .yt-link{display:inline-flex;align-items:center;gap:8px;font-weight:600;margin-top:18px;color:var(--teal)}
+  .yt-link:hover{text-decoration:underline}
+  .ig-card{background:var(--ink);color:#fff;border-radius:14px;padding:24px}
+  .ig-card .handle{font-family:var(--sans);font-weight:600;letter-spacing:.10em;font-size:13px;color:var(--sky);margin-bottom:16px;text-transform:uppercase}
+  .ig-card .post{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.10);border-radius:10px;padding:18px;font-size:15px;line-height:1.5;color:var(--cream-on-ink)}
+  .ig-card .post em{color:var(--sky)}
+  .ig-card .post b{color:#fff;font-weight:600}
+  .ig-foot{margin-top:18px;height:96px;border-radius:14px;background:var(--gradient);display:flex;align-items:center;justify-content:center;gap:16px}
+  .ig-foot a{width:38px;height:38px;border-radius:50%;background:rgba(0,0,0,.78);color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px}
 
-  .latest{padding:50px 0 80px}
-  .latest h3{font-weight:800;font-size:34px;color:var(--navy);text-transform:uppercase;margin-bottom:24px;display:flex;align-items:center;gap:14px}
-  .latest h3::after{content:"";flex:1;height:2px;background:#111}
+  .latest{padding:60px 0 90px;background:var(--bone)}
+  .latest h3{font-family:var(--serif);font-weight:500;font-size:34px;letter-spacing:-0.02em;margin-bottom:26px;display:flex;align-items:center;gap:16px}
+  .latest h3::after{content:"";flex:1;height:1px;background:var(--hairline-2)}
   .posts{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
-  .post-tile{aspect-ratio:3/4;border-radius:4px;background:#1a1a1a center/cover;display:flex;align-items:flex-end;padding:14px;color:#fff;font-size:12px}
-  .post-tile:nth-child(1){background:#6b3535}
-  .post-tile:nth-child(2){background:#101010}
-  .post-tile:nth-child(3){background:#777 center/cover}
-  .post-tile:nth-child(4){background:#2a3340}
-  .post-tile:nth-child(5){background:#101010}
+  .post-tile{aspect-ratio:3/4;border-radius:10px;display:flex;align-items:flex-end;padding:15px;color:#fff;font-size:13px;line-height:1.3;font-weight:500;background:#222}
+  .post-tile:nth-child(1){background:linear-gradient(180deg,#5a3a3a,#3a2525)}
+  .post-tile:nth-child(2){background:var(--ink)}
+  .post-tile:nth-child(3){background:linear-gradient(180deg,#6d7682,#3f454d)}
+  .post-tile:nth-child(4){background:linear-gradient(180deg,#243042,#161d28)}
+  .post-tile:nth-child(5){background:var(--ink)}
 
   /* ---------- FOOTER ---------- */
-  .pre-footer{position:relative;height:280px;overflow:hidden}
-  .pre-footer::before{content:"";position:absolute;inset:0;background:url('prof-ig.png') center/cover;filter:grayscale(.3)}
-  .pre-footer::after{content:"";position:absolute;left:0;right:0;bottom:0;height:70%;background:var(--cream);clip-path:polygon(0 55%,100% 0,100% 100%,0 100%)}
-  footer .main{background:var(--cream);padding:30px 0 60px;position:relative}
+  .pre-footer{position:relative;height:300px;overflow:hidden}
+  .pre-footer::before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(18,19,24,.18),rgba(18,19,24,.18)),url('prof-ig.png') center/cover}
+  .pre-footer::after{content:"";position:absolute;left:0;right:0;bottom:0;height:72%;background:var(--bone);clip-path:polygon(0 55%,100% 0,100% 100%,0 100%)}
+  footer .main{background:var(--bone);padding:20px 0 64px;position:relative}
   .foot-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:30px;align-items:start}
-  .foot-logo img{height:42px;width:auto}
-  .foot-col a{display:block;font-weight:700;font-size:15px;margin-bottom:18px;text-decoration:underline;text-transform:uppercase;letter-spacing:.02em}
-  .foot-cta{display:flex;flex-direction:column;gap:14px;align-items:stretch}
-  .foot-cta .btn{text-align:center}
-  .foot-social{display:flex;gap:16px;margin-top:8px;font-size:20px}
-  .foot-bottom{background:var(--dark);color:#cfcfcf;text-align:center;padding:22px;font-size:13px;letter-spacing:.05em}
-  .foot-bottom a{text-decoration:underline}
+  .foot-logo img{height:40px;width:auto}
+  .foot-col a{display:block;font-weight:500;font-size:15.5px;margin-bottom:16px;color:var(--ink-soft)}
+  .foot-col a:hover{color:var(--teal)}
+  .foot-cta{display:flex;flex-direction:column;gap:12px;align-items:stretch}
+  .foot-cta .btn{justify-content:center}
+  .foot-bottom{background:var(--ink);color:rgba(250,246,239,.66);text-align:center;padding:22px;font-size:12px;letter-spacing:.16em;text-transform:uppercase}
 
   /* ---------- RESPONSIVE ---------- */
   @media(max-width:900px){
     .navlinks{display:none}
     .about{grid-template-columns:1fr}
-    .about-text{padding:60px 30px}
-    .about-text .name{font-size:64px}
+    .about-text{padding:64px 28px}
+    .about-text .name{font-size:62px}
     .about-media{min-height:380px}
     .connect-grid{grid-template-columns:1fr}
-    .yt-card{flex-direction:column}
+    .yt-card{flex-direction:column;align-items:stretch}
     .yt-card .standing{display:none}
     .posts{grid-template-columns:repeat(2,1fr)}
     .foot-grid{grid-template-columns:1fr 1fr}
-    .logos{gap:30px}
+    .logos{gap:28px}
+    .logos span{font-size:17px}
   }
 </style>
 </head>
@@ -161,107 +197,124 @@
       <a href="https://narrativecareers.com" target="_blank" rel="noopener">Narrative Careers</a>
       <a href="https://narrativestoryselling.com" target="_blank" rel="noopener">Narrative StorySelling&trade;</a>
       <a href="https://www.amazon.com/How-Sell-Story-Message-Faster/dp/B0FV3L6LKT/" target="_blank" rel="noopener">The Book</a>
-      <a href="#" class="btn btn-outline">Book Chris</a>
+      <a href="#" class="btn btn-ghost-light">Book Chris</a>
     </div>
   </nav>
 </header>
 
 <!-- ===== HERO ===== -->
 <section class="hero">
-  <h1 class="serif">Make your <em>reputation</em><br>impossible to ignore.</h1>
-  <p>The science-backed revenue system for mission-based founders who want to scale their business without selling harder or shouting louder.</p>
+  <h1>Make your <em>reputation</em><br>impossible to ignore.</h1>
+  <p class="lede">The science-backed revenue system for mission-based founders who want to scale their business without selling harder or shouting louder.</p>
+  <div class="scroll">Scroll</div>
 </section>
 
 <!-- ===== ABOUT ===== -->
 <section class="about">
   <div class="about-text">
-    <div class="hi">HI I'M</div>
-    <div class="name script">Chris Ford</div>
-    <h3>Sales isn't magic – it's science.</h3>
+    <div class="eyebrow">Hi, I'm</div>
+    <div class="name">Chris Ford</div>
+    <h3>Sales isn't magic — it's <em>science.</em></h3>
     <p>Why do people buy? What makes them say yes? What drives belief?</p>
-    <p>For over a decade, I've studied the psychology of persuasion and applied it to one thing: <b>helping founders turn their message into money</b>. I've worked behind the scenes with entrepreneurs, consultants, and mission-based businesses to shift how they sell – driving over <b>$28.6M in high-value deals</b> using a proprietary science-backed system.</p>
+    <p>For over a decade, I've studied the psychology of persuasion and applied it to one thing: <b>helping founders turn their message into money</b>. I've worked behind the scenes with entrepreneurs, consultants, and mission-based businesses to shift how they sell — driving over <b>$28.6M in high-value deals</b> using a proprietary science-backed system.</p>
     <p>Now I'm bringing that system to you.</p>
-    <p>Whether through 1:1 coaching, group programs, or corporate workshops – I'll show you how to position your offer with precision, eliminate objections before they arise, and sell in a way that feels effortless <i>and</i> aligned with your values.</p>
-    <p><b>Let's grow your business – with a message that moves people.</b></p>
-    <a href="#" class="btn btn-navy">Let's Grow Your Business</a>
+    <p>Whether through 1:1 coaching, group programs, or corporate workshops — I'll show you how to position your offer with precision, eliminate objections before they arise, and sell in a way that feels effortless <i>and</i> aligned with your values.</p>
+    <p><b>Let's grow your business — with a message that moves people.</b></p>
+    <a href="#" class="btn btn-primary">Let's grow your business <span class="arr">&rarr;</span></a>
   </div>
   <div class="about-media" aria-label="Chris Ford"></div>
 </section>
 
 <!-- ===== KNOWN FROM ===== -->
 <section class="known">
-  <h4>YOU MIGHT KNOW ME FROM</h4>
+  <div class="eyebrow on-ink">You might know me from</div>
   <div class="logos">
-    <span>▶ YouTube</span>
-    <span>Linked<b>in</b></span>
+    <span>YouTube</span>
+    <span>LinkedIn</span>
     <span>copy.ai</span>
     <span>Instagram</span>
     <span><i>differentiated*</i></span>
-    <span>♪ TikTok</span>
+    <span>TikTok</span>
   </div>
 </section>
 
+<!-- ===== HOLLY QUOTE ===== -->
 <div class="quote">
-  <h2>You are such a master! Best storyteller around! This is so good. YOU are so good!!!</h2>
-  <div class="by script">– Holly P.</div>
+  <div class="container">
+    <h2>"You are such a master. Best storyteller around — this is so good. You are so good."</h2>
+    <div class="by">Holly P.</div>
+  </div>
 </div>
 
 <!-- ===== CHARGE BAND ===== -->
 <section class="charge">
-  <h2 class="serif">Your ability to <u>charge</u> what you're worth depends on how <span class="ring">clearly</span> you can define what you do.</h2>
-  <div class="ctas">
-    <a href="#" class="btn btn-yellow">Learn More</a>
-    <a href="#" class="btn btn-yellow">Get Started</a>
+  <div class="container">
+    <h2>Your ability to charge what you're worth depends on how <em>clearly</em> you can define what you do.</h2>
+    <div class="ctas">
+      <a href="#" class="btn btn-on-ink">Learn more</a>
+      <a href="#" class="btn btn-ghost-light">Get started</a>
+    </div>
   </div>
 </section>
 
 <!-- ===== KAY V QUOTE ===== -->
-<div class="quote">
-  <h2>Chris' program has been the single most impactful thing for my growth this year.</h2>
-  <div class="by script">– Kay V.</div>
+<div class="quote alt">
+  <div class="container">
+    <h2>"Chris' program has been the single most impactful thing for my growth this year."</h2>
+    <div class="by">Kay V.</div>
+  </div>
 </div>
 
 <!-- ===== PROVEN SYSTEM ===== -->
 <section class="proven">
-  <div class="wrap">
-    <h2>The Proven System That Has Helped <em>Thousands</em> Level-Up</h2>
-    <p><b>Whether you're an entrepreneur or leading a sales team, success isn't about working harder – it's about understanding <i>why</i> people buy.</b> My programs, frameworks, and accelerators break down the psychology of decision-making, so you can craft a message that resonates, build trust faster, and close more deals with confidence. No fluff. No guesswork. Just a proven system rooted in human behavior that helps you sell more, faster. Let's get to work.</p>
-    <a href="#" class="btn btn-navy">Learn The System Today</a>
+  <div class="container">
+    <div class="eyebrow on-ink">The system</div>
+    <h2>The proven system that has helped <em>thousands</em> level up.</h2>
+    <p><b>Whether you're an entrepreneur or leading a sales team, success isn't about working harder — it's about understanding <i>why</i> people buy.</b> My programs, frameworks, and accelerators break down the psychology of decision-making, so you can craft a message that resonates, build trust faster, and close more deals with confidence. No fluff. No guesswork. Just a proven system rooted in human behavior that helps you sell more, faster. Let's get to work.</p>
+    <a href="#" class="btn btn-on-ink">Learn the system today <span class="arr">&rarr;</span></a>
   </div>
 </section>
 
 <!-- ===== GO TIME ===== -->
 <section class="gotime">
-  <h2>It's Go-Time: Start Your<br>Journey Today</h2>
-  <p>You don't need more fluff – <b>you need to understand what makes people say <i>yes</i>.</b> My science-backed revenue system breaks down human behavior, decision-making, and persuasion so you can craft a message that sticks, stand out effortlessly, and sell with confidence. No guesswork, no wasted effort – just real strategies that work in the real world.</p>
-  <a href="#" class="btn btn-navy">Get Started Today</a>
+  <div class="container">
+    <div class="eyebrow">Go-time</div>
+    <h2>Start your <em>journey</em> today.</h2>
+    <p>You don't need more fluff — <b>you need to understand what makes people say yes.</b> My science-backed revenue system breaks down human behavior, decision-making, and persuasion so you can craft a message that sticks, stand out effortlessly, and sell with confidence. No guesswork, no wasted effort — just real strategies that work in the real world.</p>
+    <a href="#" class="btn btn-primary">Get started today <span class="arr">&rarr;</span></a>
+  </div>
 </section>
 
 <!-- ===== CONNECT ===== -->
 <section class="connect">
-  <div class="wrap">
-    <h2>Connect With Chris</h2>
+  <div class="container">
+    <div class="head">
+      <div class="eyebrow">Stay close</div>
+      <h2>Connect with Chris</h2>
+    </div>
     <div class="connect-grid">
       <div>
         <div class="yt-card">
           <img src="me.png" class="standing" alt="Chris Ford">
           <div class="thumb"><img src="chris-hat-c-logo.png" alt="Watch Chris on YouTube"></div>
         </div>
-        <a href="#" class="yt-link">Watch Chris' YouTube Videos &nbsp;</a>
+        <a href="#" class="yt-link">Watch Chris' YouTube videos <span class="arr">&rarr;</span></a>
       </div>
       <div>
         <div class="ig-card">
-          <div class="handle">&#9678; @ITSCHRISFORD_</div>
-          <div class="post">Most people think price is the objection. It's not. The real objection is <b>belief.</b> <i>Belief in you, your offer, or themselves.</i></div>
+          <div class="handle">@itschrisford_</div>
+          <div class="post">Most people think price is the objection. It's not. The real objection is <b>belief</b> — <em>belief in you, your offer, or themselves.</em></div>
         </div>
-        <div class="social-yellow">
-          <a href="#">&#9678;</a><a href="#">▶</a><a href="#">♪</a><a href="#">S</a><a href="#">&#127911;</a>
+        <div class="ig-foot">
+          <a href="#">IG</a><a href="#">YT</a><a href="#">TT</a><a href="#">SP</a><a href="#">PC</a>
         </div>
       </div>
     </div>
+  </div>
 
-    <div class="latest">
-      <h3>&#9678; Latest Posts</h3>
+  <div class="latest">
+    <div class="container">
+      <h3>Latest posts</h3>
       <div class="posts">
         <div class="post-tile">When a buyer says "Let me think about it"…</div>
         <div class="post-tile">GRR taking a hit? It started in the demo.</div>
@@ -277,7 +330,7 @@
 <div class="pre-footer"></div>
 <footer>
   <div class="main">
-    <div class="wrap foot-grid">
+    <div class="container foot-grid">
       <div class="foot-logo"><img src="cford-black.png" alt="Chris Ford"></div>
       <div class="foot-col">
         <a href="https://narrativerevenue.com" target="_blank" rel="noopener">Narrative Revenue</a>
@@ -288,13 +341,13 @@
         <a href="https://www.amazon.com/How-Sell-Story-Message-Faster/dp/B0FV3L6LKT/" target="_blank" rel="noopener">The Book</a>
       </div>
       <div class="foot-cta">
-        <a href="#" class="btn btn-navy">Book Chris</a>
-        <a href="#" class="btn btn-navy">Get In Touch!</a>
+        <a href="#" class="btn btn-primary">Book Chris</a>
+        <a href="#" class="btn btn-ghost">Get in touch</a>
       </div>
     </div>
   </div>
   <div class="foot-bottom">
-    COPYRIGHT 2026 THE NARRATIVE COMPANIES&trade; ALL RIGHTS RESERVED
+    Copyright 2026 The Narrative Companies&trade; — All Rights Reserved
   </div>
 </footer>
 
