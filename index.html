@@ -67,8 +67,18 @@
   .logo{display:inline-block;line-height:0}
   .logo img{height:24px;width:auto}
   .navlinks{display:flex;align-items:center;gap:30px}
-  .navlinks a{color:rgba(255,255,255,.92);font-size:15px;font-weight:500}
-  .navlinks a:hover{color:#fff}
+  .navlinks > a{color:rgba(255,255,255,.92);font-size:15px;font-weight:500}
+  .navlinks > a:hover{color:#fff}
+  .nav-item{position:relative}
+  .nav-item::after{content:"";position:absolute;top:100%;left:-10px;right:-10px;height:16px}
+  .nav-trigger{display:inline-flex;align-items:center;gap:6px;font-family:var(--sans);font-size:15px;font-weight:500;color:rgba(255,255,255,.92);background:none;border:0;padding:0;cursor:pointer}
+  .nav-trigger:hover,.nav-item.open .nav-trigger{color:#fff}
+  .nav-trigger .chev{font-size:10px;transition:transform .2s}
+  .nav-item:hover .chev,.nav-item.open .chev{transform:rotate(180deg)}
+  .nav-menu{position:absolute;top:100%;left:50%;margin-top:14px;min-width:224px;background:var(--bone);border:1px solid var(--hairline);border-radius:14px;padding:8px;box-shadow:0 24px 54px -22px rgba(0,0,0,.45);opacity:0;visibility:hidden;transform:translateX(-50%) translateY(6px);transition:opacity .18s ease,transform .18s ease;z-index:40}
+  .nav-item:hover .nav-menu,.nav-item.open .nav-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+  .nav-menu a{display:block;padding:11px 14px;border-radius:9px;color:var(--ink-soft);font-size:14.5px;font-weight:500;white-space:nowrap}
+  .nav-menu a:hover{background:var(--bone-soft);color:var(--teal)}
 
   /* ---------- HERO ---------- */
   .hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;color:#fff;overflow:hidden;background:#15161a}
@@ -200,9 +210,14 @@
   <nav>
     <a href="#" class="logo"><img src="cford.png" alt="Chris Ford"></a>
     <div class="navlinks">
-      <a href="https://narrativerevenue.com" target="_blank" rel="noopener">Narrative Revenue</a>
-      <a href="https://narrativecareers.com" target="_blank" rel="noopener">Narrative Careers</a>
-      <a href="https://narrativestoryselling.com" target="_blank" rel="noopener">Narrative StorySelling&trade;</a>
+      <div class="nav-item has-menu" id="companiesItem">
+        <button class="nav-trigger" aria-haspopup="true" aria-expanded="false">Companies <span class="chev" aria-hidden="true">&#9662;</span></button>
+        <div class="nav-menu" role="menu">
+          <a href="https://narrativerevenue.com" target="_blank" rel="noopener" role="menuitem">Narrative Revenue</a>
+          <a href="https://narrativecareers.com" target="_blank" rel="noopener" role="menuitem">Narrative Careers</a>
+          <a href="https://narrativestoryselling.com" target="_blank" rel="noopener" role="menuitem">Narrative StorySelling&trade;</a>
+        </div>
+      </div>
       <a href="https://www.amazon.com/How-Sell-Story-Message-Faster/dp/B0FV3L6LKT/" target="_blank" rel="noopener">The Book</a>
       <a href="#" class="btn btn-ghost-light">Book Chris</a>
     </div>
@@ -401,6 +416,20 @@
       }
     }
     tick();
+  })();
+
+  /* ---- Navbar dropdown (click/tap + outside-close) ---- */
+  (function(){
+    var item=document.getElementById('companiesItem');
+    if(!item)return;
+    var trigger=item.querySelector('.nav-trigger');
+    trigger.addEventListener('click',function(e){
+      e.stopPropagation();
+      var open=item.classList.toggle('open');
+      trigger.setAttribute('aria-expanded',open?'true':'false');
+    });
+    document.addEventListener('click',function(){item.classList.remove('open');trigger.setAttribute('aria-expanded','false');});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'){item.classList.remove('open');trigger.setAttribute('aria-expanded','false');}});
   })();
 
 </script>
