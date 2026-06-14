@@ -61,6 +61,11 @@
   .btn-ghost-light{background:transparent;color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.6)}
   .btn-ghost-light:hover{background:#fff;color:var(--ink)}
 
+  /* Subtle scroll reveal */
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s cubic-bezier(.4,0,.2,1),transform .7s cubic-bezier(.4,0,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important;transition:none!important}}
+
   /* ---------- NAV ---------- */
   header{position:absolute;top:0;left:0;right:0;z-index:30}
   nav{display:flex;align-items:center;justify-content:space-between;padding:24px 40px}
@@ -156,6 +161,15 @@
   .fw-wave{max-width:960px;margin:2px 0}
   .fw-wave svg{display:block;width:100%;height:auto;overflow:visible}
   .fwv-title{font-family:var(--serif);font-size:21px;fill:var(--bone);letter-spacing:-0.01em}
+  .fw-arc-line{stroke-dasharray:900;stroke-dashoffset:900;transition:stroke-dashoffset 2s cubic-bezier(.4,0,.2,1)}
+  .fw-wave.in .fw-arc-line{stroke-dashoffset:0}
+  .fw-arc-beat{opacity:0;transition:opacity .5s ease}
+  .fw-wave.in .fw-arc-beat{opacity:1}
+  .fw-wave.in .fw-arc-beat:nth-of-type(2){transition-delay:.45s}
+  .fw-wave.in .fw-arc-beat:nth-of-type(3){transition-delay:.9s}
+  .fw-wave.in .fw-arc-beat:nth-of-type(4){transition-delay:1.3s}
+  .fw-wave.in .fw-arc-beat:nth-of-type(5){transition-delay:1.7s}
+  @media(prefers-reduced-motion:reduce){.fw-arc-line{stroke-dashoffset:0;transition:none}.fw-arc-beat{opacity:1}}
   @media(max-width:640px){.fwv-title{font-size:34px}}
   .fwt-link{display:inline-flex;align-items:center;gap:8px;margin-top:24px;font-family:var(--sans);font-weight:600;font-size:14px;color:var(--sky)}
   .fwt-link:hover{text-decoration:underline}
@@ -179,7 +193,7 @@
   .channel:hover{transform:translateY(-4px);box-shadow:0 18px 40px -24px rgba(27,29,34,.45);border-color:var(--hairline-2)}
   .ch-mark{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:20px;font-weight:700;margin-bottom:14px}
   .ch-mark.yt{background:#FF0000}
-  .ch-mark.ig{background:var(--gradient)}
+  .ch-mark.ig{background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fdf497 5%,#fd5949 45%,#d6249f 60%,#285AEB 90%)}
   .ch-mark.tt{background:#000}
   .ch-mark.li{background:#0A66C2;font-family:var(--sans);font-size:18px;font-weight:700}
   .ch-name{font-family:var(--serif);font-size:22px;font-weight:500;letter-spacing:-0.01em}
@@ -214,8 +228,13 @@
   .beat{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;padding:54px 0;border-top:1px solid var(--hairline)}
   .beat.first{border-top:0;padding-top:24px}
   .beat.img-right .beat-media{order:2}
-  .beat-media{border-radius:18px;overflow:hidden;aspect-ratio:4/3;background:var(--bone-soft)}
+  .beat-media{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:4/3;background:var(--bone-soft)}
+  .beat-media.has-anno{overflow:visible;background:transparent}
+  .beat-media-clip{position:absolute;inset:0;border-radius:18px;overflow:hidden;background:var(--bone-soft)}
   .beat-media img{width:100%;height:100%;object-fit:cover}
+  .beat-anno{position:absolute;inset:0;z-index:3;pointer-events:none}
+  .beat-anno-label{position:absolute;top:0;right:clamp(12px,5%,30px);transform:translateY(-50%);font-family:var(--sans);font-size:clamp(10.5px,1vw,12.5px);font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:rgba(20,22,26,.94);border:1px solid rgba(255,255,255,.85);border-radius:8px;padding:7px 12px;white-space:nowrap;box-shadow:0 6px 18px rgba(0,0,0,.28)}
+  .beat-anno-arrow{position:absolute;filter:drop-shadow(0 1px 2px rgba(0,0,0,.55))}
   .beat-meta{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--teal);margin-bottom:14px}
   .beat-text h3{font-family:var(--serif);font-weight:500;font-size:clamp(24px,2.6vw,34px);line-height:1.1;letter-spacing:-0.015em;margin-bottom:16px}
   .beat-text p{color:var(--ink-soft);font-size:16.5px;margin-bottom:14px}
@@ -380,7 +399,7 @@
 <!-- ===== HERO ===== -->
 <section class="hero">
   <div class="hero-video">
-    <video autoplay muted loop playsinline poster="me.png">
+    <video autoplay muted loop playsinline poster="chris-office-wide.png">
       <source src="hero-montage.mp4" type="video/mp4">
     </video>
   </div>
@@ -446,9 +465,10 @@
     <div class="beat first img-right">
       <div class="beat-media"><img src="chris-basketball.png" alt="Chris with his high school basketball team"></div>
       <div class="beat-text">
-        <div class="beat-meta">Before all this</div>
-        <h3>A kid obsessed with details.</h3>
-        <p>I spent my childhood chasing the NBA. At 6'1" and about 150 pounds soaking wet, that was never going to happen — but those years taught me the thing I'd eventually build a career on: the smallest details are what separate the great from the average.</p>
+        <div class="beat-meta">Before any of it</div>
+        <h3>Basketball was my whole identity. Until it wasn't.</h3>
+        <p>I spent my entire childhood chasing the league. 6'1", could shoot the lights out — and about 150 pounds soaking wet. The NBA was never happening, and the day I finally admitted it, the only identity I'd ever had shattered. It was all I knew.</p>
+        <p>But all those hours in the gym taught me one thing that stuck: the smallest details are what separate the great from the average. It wouldn't get me to the league — but it would make me dangerous at something else.</p>
       </div>
     </div>
 
@@ -456,8 +476,9 @@
       <div class="beat-media"><img src="chris-nc-state.png" alt="NC State 2008"></div>
       <div class="beat-text">
         <div class="beat-meta">2008 — 2012</div>
-        <h3>The detour — and a credential I couldn't use.</h3>
-        <p>I went to NC State for pre-med, switched to physical therapy, and graduated with a degree and no idea how to turn it into a career. I'd done everything the plan told me to do. The plan didn't work.</p>
+        <h3>So I went to college to start over.</h3>
+        <p>I showed up at NC State pre-med, chasing a brand-new dream: anesthesiology. It didn't take long to realize it was wildly expensive and probably out of reach — so I switched my focus to physical therapy and started volunteering at athletic recovery clinics. New plan. Felt solid.</p>
+        <p>I didn't really question it. That's what you do — pick a path, go to school for it, follow the plan. I didn't know anyone who'd done it any other way.</p>
       </div>
     </div>
 
@@ -465,9 +486,9 @@
       <div class="beat-media"><img src="chris-storytelling.png" alt="Chris producing music in college"></div>
       <div class="beat-text">
         <div class="beat-meta">2011</div>
-        <h3>Then I found story.</h3>
-        <p>What actually lit me up in those years wasn't medicine — it was music. I started producing, wrote songs, even opened for a Nappy Roots show, and fell hard for cadence, rhythm, and the craft of making people feel something.</p>
-        <p>I didn't know it yet — but that, not the degree, was the foundation of everything that came next.</p>
+        <h3>Then I found music.</h3>
+        <p>My roommate left a MIDI keyboard lying around. I &ldquo;borrowed&rdquo; it, never gave it back, and started producing. I wrote songs, worked with artists, and fell hard for cadence, rhythm, and the craft of telling a story that makes people feel something. Two buddies and I even opened for a Nappy Roots concert with nothing but our own self-produced songs.</p>
+        <p>I didn't know it yet — but this, not the degree, was the skill that would change my life.</p>
       </div>
     </div>
 
@@ -475,8 +496,9 @@
       <div class="beat-media"><img src="chris-graduation.png" alt="Graduation 2012"></div>
       <div class="beat-text">
         <div class="beat-meta">2012</div>
-        <h3>I graduated straight into a dead end.</h3>
-        <p>Four years, a degree, a pile of debt — and then PT school rejected me. The plan I'd built my life around was gone, and I was starting over with no idea what came next.</p>
+        <h3>I graduated. Then PT school said no.</h3>
+        <p>Four years flew by. I crossed the stage with a degree, a pile of debt — and then PT school rejected me. Just like that, the plan I'd built my life around was gone, and I was starting over. Again.</p>
+        <p>I had absolutely no idea what to do next. Nobody ever teaches you how to figure that out. The plan was supposed to work.</p>
       </div>
     </div>
 
@@ -484,9 +506,9 @@
       <div class="beat-media"><img src="chris-pharmacy.png" alt="Hospital pharmacy"></div>
       <div class="beat-text">
         <div class="beat-meta">2012</div>
-        <h3>So I landed in a basement counting pills.</h3>
-        <p>No windows. 4:30 a.m. starts. And the slow, sinking realization that this could be the next forty years of my life if something didn't change.</p>
-        <p>I fired off applications with no story, no direction, and no idea how to talk about myself in a way that made anyone care.</p>
+        <h3>So I took a job in a hospital pharmacy basement.</h3>
+        <p>No windows. No sunlight. Counting pills at 4:30 in the morning, with the slow, sinking realization that this could be the next forty years of my life if something didn't change.</p>
+        <p>I started firing off job applications — anything to get out. But I had no story, no direction, and no idea how to talk about myself in a way that made anyone care.</p>
       </div>
     </div>
 
@@ -495,38 +517,56 @@
       <div class="beat-text">
         <div class="beat-meta">2013</div>
         <h3>Then a stranger named Will Barfield called.</h3>
-        <p>A recruiter found my résumé and asked if I'd ever thought about tech sales. I hadn't — but anything beat the basement, so I took the call.</p>
-        <p>That call opened the door. It wasn't the lesson. The lesson came next.</p>
+        <p>A recruiter. He'd stumbled onto my résumé and figured it was a long shot, but asked if I'd ever thought about tech sales. I had no idea what tech sales even was. I took the call anyway — anything beat counting pills at 4:30 a.m.</p>
+        <p>That one conversation set the course of the next decade of my life. Not a degree. Not a plan. One stranger who saw something on a page and picked up the phone. I got lucky. Most kids never get that call.</p>
       </div>
     </div>
 
     <div class="beat img-right">
-      <div class="beat-media"><img src="chris-relias.png" alt="Chris's first sales office"></div>
+      <div class="beat-media has-anno">
+        <div class="beat-media-clip"><img src="chris-relias.png" alt="Chris's first sales office"></div>
+        <div class="beat-anno">
+          <span class="beat-anno-label">Our office</span>
+          <svg class="beat-anno-arrow" width="46" height="105" viewBox="0 0 46 105" fill="none" aria-hidden="true" style="top:4%;right:clamp(12px,5.5%,34px)">
+            <path d="M31 4 C 47 28, 16 64, 26 97" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M15 87 L26 98 L37 88" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
       <div class="beat-text">
         <div class="beat-meta">2013</div>
-        <h3>Fifty cold calls a day taught me the real lesson.</h3>
-        <p>The job: fifty cold calls a day to behavioral-health clinics and correctional facilities. Yes, that means cold-calling jail wardens. No, they were not happy to hear from me. The phone felt like it weighed 250 pounds.</p>
-        <p>But that grind taught me the single most important skill of my career: <b>attention is currency.</b> Grab it, hold it, turn it into a yes — and you win. That's where storytelling became selling, and selling became storytelling.</p>
+        <h3>The phone felt like it weighed 250 pounds.</h3>
+        <p>My first sales job: an SDR making 50 cold calls a day — to behavioral health clinics and correctional facilities. Yes, that means I spent my days cold-calling prison wardens. (No, they were not thrilled to hear from me.) I was terrified — my palms still clam up thinking about it.</p>
+        <p>But that job taught me the single most important skill of my career: how to grab a stranger's attention, hold it, and turn it into a yes. Attention is currency. And storytelling, I realized, was just selling — and selling was just storytelling.</p>
       </div>
     </div>
 
     <div class="beat">
-      <div class="beat-media"><img src="chris-presidents-club.png" alt="Chris with his team at President's Club"></div>
+      <div class="beat-media has-anno">
+        <div class="beat-media-clip"><img src="chris-presidents-club.png" alt="Chris with his team at President's Club"></div>
+        <div class="beat-anno">
+          <span class="beat-anno-label">President&rsquo;s Club</span>
+          <svg class="beat-anno-arrow" width="40" height="65" viewBox="0 0 40 65" fill="none" aria-hidden="true" style="top:3%;right:clamp(8px,3%,22px)">
+            <path d="M27 5 C 42 20, 12 38, 22 55" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M12 41 L22 59 L32 43" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
       <div class="beat-text">
         <div class="beat-meta">2015 — 2022</div>
-        <h3>Then I climbed — by telling a better story.</h3>
-        <p>I went from those calls to closing deals with Fortune 500 CEOs. I helped build a company acquired for $540M, scaled an AI startup from a few million to $30M in two years, and led North American Solutions at Clari from Series B to a $2.6B valuation — all by refining how we told the story.</p>
-        <p>I watched the same thing happen over and over: the most qualified person in the room rarely won. The one who could tell their story did. Every single time.</p>
+        <h3>Then I climbed. Fast.</h3>
+        <p>Account Executive selling to Fortune 500 CEOs. President's Club. I helped one company get acquired for $540M and another grow from a few million to $30M in two years. Along the way, I interviewed and hired thousands of people.</p>
+        <p>And I watched the same thing happen over and over: the most qualified person in the room rarely won. The one who could tell their story did. Every single time.</p>
       </div>
     </div>
 
     <div class="beat img-right">
-      <div class="beat-media"><img src="how-to-sell-with-story.png" alt="How to Sell with Story"></div>
+      <div class="beat-media"><img src="how-to-sell-with-story.png" alt="Chris teaching his storytelling framework"></div>
       <div class="beat-text">
         <div class="beat-meta">2023</div>
-        <h3>So I built the framework — and wrote the book.</h3>
-        <p>I turned everything I'd learned into a copyrighted framework rooted in the behavioral science of why buyers say yes, trained hundreds of people on it, and drove over $28.6M in sales with it. Then I wrote the book on it: <a href="https://www.amazon.com/How-Sell-Story-Message-Faster/dp/B0FV3L6LKT/" target="_blank" rel="noopener">How to Sell with Story</a>.</p>
-        <p>None of it — not one dollar — came from my degree. It came from the one skill nobody ever taught me.</p>
+        <h3>So I built the framework — and wrote a book.</h3>
+        <p>I turned everything I'd learned into a repeatable storytelling framework, copyrighted it, and used it to drive over $28.6M in sales and shape go-to-market at companies that grew to billion-dollar valuations. I trained thousands of people on it. Then I wrote the book on it: <a href="https://www.amazon.com/How-Sell-Story-Message-Faster/dp/B0FV3L6LKT/" target="_blank" rel="noopener">How to Sell with Story</a>.</p>
+        <p>None of it — not one dollar — came from my degree. It came from a skill nobody ever taught me, that I stumbled into by pure luck.</p>
       </div>
     </div>
 
@@ -534,16 +574,16 @@
       <div class="beat-media"><img src="chris-office-wide.png" alt="Chris Ford today"></div>
       <div class="beat-text">
         <div class="beat-meta">Now</div>
-        <h3>The producer, not the artist.</h3>
-        <p>I think of myself as the producer, not the artist — the Dr. Dre to someone's Eminem. I don't change who you are; I find what's already great and build the framework that finally makes the world hear it.</p>
-        <p>That's the thread through everything I build. <b>Narrative Revenue</b> helps founders, consultants, and coaches sell what they already do. <b>Narrative Careers</b> helps capable people get picked. Different rooms — same anchor: communicate your value so clearly you're impossible to ignore.</p>
+        <h3>Now I teach it on purpose.</h3>
+        <p>I spent a decade learning to tell a story that makes the right person say yes. So now I teach it — not only to founders or sellers, but to 16-to-21-year-olds standing exactly where I stood: capable, but invisible on paper, waiting to be picked.</p>
+        <p>I want every one of them to tell their story so clearly they're impossible to ignore.</p>
       </div>
     </div>
 
     <div class="story-note">
       <div class="eyebrow">A personal note</div>
-      <p class="big">"I don't start with tactics. I start with the science of how people actually decide to buy — then teach you to sell what you already do, without ever feeling like someone you're not."</p>
-      <p>Whether it's a founder trying to close bigger deals or someone trying to land their first real shot, the work is the same — and you get me, not a handoff to a junior hire. The person who built this is the person in the room with you.</p>
+      <p class="big">"I know what it's like to be good at something and still get passed over — to watch someone less capable win the room simply because they could tell the story. That feeling is the exact thing I exist to fix."</p>
+      <p>I won't hand you a script or pass you off to a junior hire. I get in the room with you, find the thing you can't see in yourself, and give you the words that finally make people get it. The person who built this is the one sitting across from you.</p>
       <div class="story-byline">
         <img src="prof-ig.png" alt="Chris Ford">
         <div>
@@ -677,12 +717,12 @@
               <stop offset="1" stop-color="#E921A8"/>
             </linearGradient>
           </defs>
-          <path d="M110,175 C 207.5,175 207.5,300 305,300 C 402.5,300 402.5,220 500,220 C 597.5,220 597.5,160 695,160 C 792.5,160 792.5,110 890,110" stroke="url(#cfArcGrad)" stroke-width="3" stroke-linecap="round"/>
-          <g><text class="fwv-title" x="110" y="149" text-anchor="middle">Opportunity</text><circle cx="110" cy="175" r="8" fill="#5CA1C1"/></g>
-          <g><text class="fwv-title" x="305" y="274" text-anchor="middle">Problem</text><circle cx="305" cy="300" r="8" fill="#676FDC"/></g>
-          <g><text class="fwv-title" x="500" y="194" text-anchor="middle">Solution</text><circle cx="500" cy="220" r="8" fill="#752cff"/></g>
-          <g><text class="fwv-title" x="695" y="134" text-anchor="middle">Action</text><circle cx="695" cy="160" r="8" fill="#A428DC"/></g>
-          <g><text class="fwv-title" x="890" y="84" text-anchor="middle">Transformation</text><circle cx="890" cy="110" r="8" fill="#E921A8"/></g>
+          <path class="fw-arc-line" d="M110,175 C 207.5,175 207.5,300 305,300 C 402.5,300 402.5,220 500,220 C 597.5,220 597.5,160 695,160 C 792.5,160 792.5,110 890,110" stroke="url(#cfArcGrad)" stroke-width="3" stroke-linecap="round"/>
+          <g class="fw-arc-beat"><text class="fwv-title" x="110" y="149" text-anchor="middle">Opportunity</text><circle cx="110" cy="175" r="8" fill="#5CA1C1"/></g>
+          <g class="fw-arc-beat"><text class="fwv-title" x="305" y="274" text-anchor="middle">Problem</text><circle cx="305" cy="300" r="8" fill="#676FDC"/></g>
+          <g class="fw-arc-beat"><text class="fwv-title" x="500" y="194" text-anchor="middle">Solution</text><circle cx="500" cy="220" r="8" fill="#752cff"/></g>
+          <g class="fw-arc-beat"><text class="fwv-title" x="695" y="134" text-anchor="middle">Action</text><circle cx="695" cy="160" r="8" fill="#A428DC"/></g>
+          <g class="fw-arc-beat"><text class="fwv-title" x="890" y="84" text-anchor="middle">Transformation</text><circle cx="890" cy="110" r="8" fill="#E921A8"/></g>
         </svg>
       </div>
       <a class="fwt-link" href="https://www.narrativestoryselling.com" target="_blank" rel="noopener">See the full framework <span class="arr">&rarr;</span></a>
@@ -714,7 +754,7 @@
 
     <div class="channels">
       <a href="https://youtube.com/@itschrisford" target="_blank" rel="noopener" class="channel">
-        <span class="ch-mark yt"><svg width="24" height="24" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M9 7.5v9l7.5-4.5z"/></svg></span>
+        <span class="ch-mark yt"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M9.2 6.9 L9.2 17.1 L18 12 Z"/></svg></span>
         <span class="ch-name">YouTube</span>
         <span class="ch-handle">@itschrisford</span>
         <span class="ch-go">Subscribe <span class="arr">&rarr;</span></span>
@@ -732,7 +772,7 @@
         <span class="ch-go">Follow <span class="arr">&rarr;</span></span>
       </a>
       <a href="https://linkedin.com/in/itschrisford" target="_blank" rel="noopener" class="channel">
-        <span class="ch-mark li">in</span>
+        <span class="ch-mark li"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.49 6S0 4.88 0 3.5 1.11 1 2.49 1s2.49 1.12 2.49 2.5zM5 8H0v16h5V8zm7.98 0H8.02v16h4.96v-8.4c0-4.62 6.02-5 6.02 0V24H24V13.6c0-7.79-8.92-7.51-11.02-3.67V8z"/></svg></span>
         <span class="ch-name">LinkedIn</span>
         <span class="ch-handle">Chris Ford</span>
         <span class="ch-go">Connect <span class="arr">&rarr;</span></span>
@@ -862,6 +902,41 @@
       t.setAttribute('aria-expanded',open?'true':'false');
     });
     m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',close);});
+  })();
+
+  /* ---- Subtle scroll reveal across the page ---- */
+  (function(){
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var groups = [
+      '.known','.story-intro > div','.story-origin-head','.beat','.story-note','.story-lesson .container',
+      '.story-stats-sec .eyebrow','.story-stats-sec h3','.story-stat',
+      '.portfolio-head','.pf-card','.method-callout',
+      '.charge h2','.charge .ctas','.quote .container',
+      '.proven .container > *','.gotime .container > *',
+      '.connect-head','.channel','.bookfeature-media','.bookfeature-text','.final-cta .container > *'
+    ];
+    var els = Array.prototype.slice.call(document.querySelectorAll(groups.join(',')));
+    if(!els.length) return;
+    els.forEach(function(el){ el.classList.add('reveal'); });
+    ['.pf-card','.channel','.story-stat'].forEach(function(s){
+      document.querySelectorAll(s).forEach(function(el,i){ el.style.transitionDelay = (i*0.08)+'s'; });
+    });
+    if(reduce || !('IntersectionObserver' in window)){ els.forEach(function(el){ el.classList.add('in'); }); return; }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+    els.forEach(function(el){ io.observe(el); });
+  })();
+
+  /* ---- Story-wave draw-in on scroll ---- */
+  (function(){
+    var els=document.querySelectorAll('.fw-wave');
+    if(!els.length)return;
+    if(!('IntersectionObserver' in window)){els.forEach(function(el){el.classList.add('in');});return;}
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    },{threshold:0.35});
+    els.forEach(function(el){io.observe(el);});
   })();
 
 </script>
