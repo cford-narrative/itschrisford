@@ -232,9 +232,19 @@
   .portfolio-head .eyebrow{margin-bottom:18px}
   .portfolio-head h2{font-weight:500;font-size:clamp(34px,4.6vw,60px);line-height:1.04;letter-spacing:-0.025em}
   .portfolio-head p{margin-top:20px;color:var(--ink-soft);font-size:18px;max-width:620px}
-  .portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .portfolio-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+  .method-callout{margin-top:20px;display:flex;align-items:center;justify-content:space-between;gap:32px;padding:30px 38px;border-radius:18px;background:var(--ink);color:var(--bone);text-decoration:none;transition:transform .2s,box-shadow .25s}
+  .method-callout:hover{transform:translateY(-3px);box-shadow:0 20px 44px -26px rgba(27,29,34,.55)}
+  .method-callout:hover .mc-link .arr{transform:translateX(4px)}
+  .mc-eyebrow{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--sky)}
+  .mc-name{font-family:var(--serif);font-weight:500;font-size:26px;letter-spacing:-0.015em;margin-top:9px;line-height:1.1}
+  .mc-desc{margin-top:11px;font-size:15px;line-height:1.55;color:rgba(252,248,242,.68);max-width:660px}
+  .mc-link{flex:none;display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--sky);white-space:nowrap}
+  .mc-link .arr{display:inline-block;transition:transform .25s}
+  @media(max-width:680px){.method-callout{flex-direction:column;align-items:flex-start;gap:18px;padding:26px 24px}}
   .pf-card{display:flex;flex-direction:column;padding:32px;border:1px solid var(--hairline);border-radius:18px;background:var(--bone-soft);scroll-margin-top:90px;transition:transform .2s,box-shadow .25s,border-color .2s}
   .pf-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px -24px rgba(27,29,34,.4);border-color:var(--hairline-2)}
+  .pf-card .pf-icon{width:46px;height:46px;border-radius:50%;display:block;margin-bottom:20px;box-shadow:0 5px 14px -5px rgba(27,29,34,.4)}
   .pf-card .pf-name{font-family:var(--serif);font-weight:500;font-size:26px;letter-spacing:-0.015em;line-height:1.1}
   .pf-card .pf-tag{margin-top:8px;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--teal)}
   .pf-card .pf-desc{margin-top:18px;color:var(--ink-soft);font-size:15.5px;line-height:1.55;flex:1}
@@ -653,29 +663,33 @@
   <div class="container">
     <div class="portfolio-head">
       <div class="eyebrow">Portfolio Companies</div>
-      <h2>One idea. <em>Three companies.</em></h2>
-      <p>Every Narrative company runs on the same idea — communicate your value so clearly you're impossible to ignore. Here's where that work lives.</p>
+      <h2>One idea. <em>Two companies.</em></h2>
+      <p>Both Narrative companies run on the same idea — communicate your value so clearly you're impossible to ignore. Here's where that work lives.</p>
     </div>
     <div class="portfolio-grid">
       <div class="pf-card" id="revenue">
+        <img class="pf-icon" src="narrative-revenue-icon.png" alt="" aria-hidden="true" />
         <div class="pf-name">Narrative Revenue</div>
         <div class="pf-tag">Get paid what you're worth</div>
         <div class="pf-desc">Sales consultancy for coaches, consultants, and founders. The behavioral science of why buyers say yes — so you can sell what you already do, without ever feeling like someone you're not.</div>
         <a href="https://www.narrativerevenue.com" target="_blank" rel="noopener" class="pf-link">Visit narrativerevenue.com <span class="arr">&rarr;</span></a>
       </div>
       <div class="pf-card" id="careers">
+        <img class="pf-icon" src="narrative-careers-icon.png" alt="" aria-hidden="true" />
         <div class="pf-name">Narrative Careers</div>
         <div class="pf-tag">Skip the debt. Own your story.</div>
         <div class="pf-desc">A career-coaching program for 16–21 year olds. We position, place, and coach them all the way to a guaranteed job offer — without the degree, the debt, or the wait.</div>
         <a href="https://www.narrativecareers.com" target="_blank" rel="noopener" class="pf-link">Visit narrativecareers.com <span class="arr">&rarr;</span></a>
       </div>
-      <div class="pf-card" id="storyselling">
-        <div class="pf-name">Narrative StorySelling&trade;</div>
-        <div class="pf-tag">The framework</div>
-        <div class="pf-desc">The copyrighted storytelling system behind it all — the repeatable framework that's driven $28.6M+ in sales and trained hundreds of people to turn their message into money.</div>
-        <a href="https://www.narrativestoryselling.com" target="_blank" rel="noopener" class="pf-link">Visit narrativestoryselling.com <span class="arr">&rarr;</span></a>
-      </div>
     </div>
+    <a class="method-callout" id="storyselling" href="https://www.narrativestoryselling.com" target="_blank" rel="noopener">
+      <div class="mc-text">
+        <div class="mc-eyebrow">The methodology behind both</div>
+        <div class="mc-name">Narrative StorySelling&trade;</div>
+        <div class="mc-desc">The copyrighted storytelling system every Narrative company runs on — the repeatable framework that's driven $28.6M+ in sales and trained hundreds to turn their message into money.</div>
+      </div>
+      <span class="mc-link">Visit narrativestoryselling.com <span class="arr">&rarr;</span></span>
+    </a>
   </div>
 </section>
 
@@ -691,10 +705,10 @@
     </div>
 
     <div class="channels">
-      <a href="https://youtube.com/@itschrisford_" target="_blank" rel="noopener" class="channel">
+      <a href="https://youtube.com/@itschrisford" target="_blank" rel="noopener" class="channel">
         <span class="ch-mark yt">▶</span>
         <span class="ch-name">YouTube</span>
-        <span class="ch-handle">@itschrisford_</span>
+        <span class="ch-handle">@itschrisford</span>
         <span class="ch-go">Subscribe <span class="arr">&rarr;</span></span>
       </a>
       <a href="https://instagram.com/itschrisford_" target="_blank" rel="noopener" class="channel">
