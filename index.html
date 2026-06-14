@@ -126,6 +126,9 @@
   /* ---------- QUOTE ---------- */
   .quote{text-align:center;padding:110px 28px;background:var(--bone)}
   .quote.alt{background:var(--bone-soft)}
+  .quote.feature{background:var(--ink);color:var(--bone)}
+  .quote.feature h2{color:var(--bone)}
+  .quote.feature .by{color:var(--sky)}
   .quote h2{font-family:var(--serif);font-weight:500;font-style:italic;font-size:clamp(28px,3.8vw,46px);max-width:1000px;margin:0 auto;line-height:1.2;letter-spacing:-0.018em}
   .quote .by{margin-top:26px;font-family:var(--script);font-size:30px;color:var(--teal)}
 
@@ -150,7 +153,7 @@
   .proven p b{font-weight:600;color:#fff}
 
   /* ---------- GO TIME ---------- */
-  .gotime{background:var(--bone-soft);text-align:center;padding:130px 28px}
+  .gotime{background:var(--bone);text-align:center;padding:130px 28px}
   .gotime .eyebrow{margin-bottom:18px}
   .gotime h2{font-weight:500;font-size:clamp(40px,5.8vw,82px);line-height:1.02;letter-spacing:-0.028em}
   .gotime h2 em{color:var(--teal);font-style:italic}
@@ -265,17 +268,16 @@
   .bookfeature-cta{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap}
 
   /* ---------- FOOTER ---------- */
-  .final-cta{background:var(--ink);color:var(--bone);text-align:center;padding:clamp(86px,11vw,150px) 0 clamp(72px,9vw,120px)}
+  .final-cta{background:var(--ink);color:var(--bone);text-align:center;position:relative;overflow:hidden;padding:clamp(86px,11vw,150px) 0 0}
   .final-cta .eyebrow{color:var(--sky);margin-bottom:24px}
   .final-cta h2{font-family:var(--serif);font-weight:500;font-size:clamp(40px,5.8vw,76px);line-height:1.04;letter-spacing:-0.025em;max-width:16ch;margin:0 auto;color:var(--bone)}
   .final-cta h2 em{font-style:italic;color:var(--sky)}
   .final-cta p{margin:26px auto 0;max-width:520px;color:rgba(252,248,242,.72);font-size:18px;line-height:1.55}
   .final-cta .fc-btn{margin-top:40px;padding:18px 36px;font-size:16px}
   .final-cta .fc-btn:hover{background:var(--sky)}
-  .pre-footer{position:relative;height:300px;overflow:hidden;background:var(--ink)}
-  .pre-footer::before{content:"";position:absolute;inset:0;z-index:1;background:radial-gradient(120% 150% at 50% 0%,rgba(142,203,226,.16),transparent 58%)}
-  .pre-footer svg{position:absolute;inset:0;width:100%;height:100%;z-index:0}
-  .pre-footer::after{content:"";position:absolute;left:0;right:0;bottom:0;height:72%;background:var(--bone);clip-path:polygon(0 55%,100% 0,100% 100%,0 100%);z-index:2}
+  .final-wave{position:relative;height:clamp(150px,18vw,220px);margin-top:clamp(44px,6vw,76px);line-height:0}
+  .final-wave svg{position:absolute;inset:0;width:100%;height:100%}
+  .final-wave::after{content:"";position:absolute;left:0;right:0;bottom:0;height:72%;background:var(--bone);clip-path:polygon(0 55%,100% 0,100% 100%,0 100%);z-index:2}
   footer .main{background:var(--bone);padding:20px 0 64px;position:relative}
   .foot-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:30px;align-items:start}
   .foot-logo img{height:40px;width:auto}
@@ -393,6 +395,19 @@
     <a href="https://www.narrativerevenue.com" target="_blank" rel="noopener" class="btn btn-primary">Let's grow your business <span class="arr">&rarr;</span></a>
   </div>
   <div class="about-media" aria-label="Chris Ford"></div>
+</section>
+
+<!-- ===== KNOWN FROM ===== -->
+<section class="known">
+  <div class="eyebrow on-ink">You might know me from</div>
+  <div class="logos">
+    <span>The Narrative Companies™</span>
+    <span>YouTube</span>
+    <span>Instagram</span>
+    <span>ClickUp</span>
+    <span><i>differentiated*</i></span>
+    <span>TikTok</span>
+  </div>
 </section>
 
 <!-- ===== CHRIS' STORY ===== -->
@@ -533,7 +548,7 @@
   <div class="story-lesson">
     <div class="container">
       <div class="eyebrow">The lesson</div>
-      <blockquote>"The skill that changed my career wasn't a credential. It was learning that attention is currency — and that the story you tell is what makes someone say yes. I built The Narrative Companies so good people don't have to learn that the hard way."</blockquote>
+      <blockquote>"The skill that changed my career wasn't a credential. It was learning that attention is currency — and that the story you tell is what makes someone say yes. I built The Narrative Companies so other people don't have to learn that the hard way."</blockquote>
       <div class="story-byline">
         <img src="prof-ig.png" alt="Chris Ford">
         <div>
@@ -550,34 +565,56 @@
       <h3 style="font-weight:500;font-size:clamp(28px,3.4vw,44px);line-height:1.08;letter-spacing:-0.02em;margin-top:14px;max-width:820px">The same skill, <em>behind everything I build.</em></h3>
       <div class="story-stats">
         <div class="story-stat"><div class="n">$28.6M+</div><div class="l">in sales driven by the Narrative framework</div></div>
-        <div class="story-stat"><div class="n">$2.6B</div><div class="l">valuation scaled at Clari, Series B onward</div></div>
-        <div class="story-stat"><div class="n">$540M</div><div class="l">acquisition he helped close</div></div>
+        <div class="story-stat"><div class="n">$2.6B</div><div class="l">valuation scaled from Series B to Series F</div></div>
+        <div class="story-stat"><div class="n">1,000's</div><div class="l">of people helped with the Narrative Method</div></div>
         <div class="story-stat"><div class="n">10+ yrs</div><div class="l">mastering the science of why buyers say yes</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== KNOWN FROM ===== -->
-<section class="known">
-  <div class="eyebrow on-ink">You might know me from</div>
-  <div class="logos">
-    <span>YouTube</span>
-    <span>LinkedIn</span>
-    <span>copy.ai</span>
-    <span>Instagram</span>
-    <span><i>differentiated*</i></span>
-    <span>TikTok</span>
-  </div>
-</section>
-
 <!-- ===== HOLLY QUOTE ===== -->
-<div class="quote">
+<div class="quote feature">
   <div class="container">
     <h2>"You are such a master. Best storyteller around — this is so good. You are so good."</h2>
     <div class="by">Holly P.</div>
   </div>
 </div>
+
+<!-- ===== PORTFOLIO COMPANIES ===== -->
+<section class="portfolio" id="portfolio">
+  <div class="container">
+    <div class="portfolio-head">
+      <div class="eyebrow">Portfolio Companies</div>
+      <h2>One idea. <em>Two companies.</em></h2>
+      <p>Both Narrative companies run on the same idea — communicate your value so clearly you're impossible to ignore. Here's where that work lives.</p>
+    </div>
+    <div class="portfolio-grid">
+      <div class="pf-card" id="revenue">
+        <img class="pf-icon" src="narrative-revenue-icon.png" alt="" aria-hidden="true" />
+        <div class="pf-name">Narrative Revenue</div>
+        <div class="pf-tag">Get paid what you're worth</div>
+        <div class="pf-desc">Sales consultancy for coaches, consultants, and founders. The behavioral science of why buyers say yes — so you can sell what you already do, without ever feeling like someone you're not.</div>
+        <a href="https://www.narrativerevenue.com" target="_blank" rel="noopener" class="pf-link">Visit narrativerevenue.com <span class="arr">&rarr;</span></a>
+      </div>
+      <div class="pf-card" id="careers">
+        <img class="pf-icon" src="narrative-careers-icon.png" alt="" aria-hidden="true" />
+        <div class="pf-name">Narrative Careers</div>
+        <div class="pf-tag">Skip the debt. Own your story.</div>
+        <div class="pf-desc">A career-coaching program for 16–21 year olds. We position, place, and coach them all the way to a guaranteed job offer — without the degree, the debt, or the wait.</div>
+        <a href="https://www.narrativecareers.com" target="_blank" rel="noopener" class="pf-link">Visit narrativecareers.com <span class="arr">&rarr;</span></a>
+      </div>
+    </div>
+    <a class="method-callout" id="storyselling" href="https://www.narrativestoryselling.com" target="_blank" rel="noopener">
+      <div class="mc-text">
+        <div class="mc-eyebrow">The methodology behind both</div>
+        <div class="mc-name">Narrative StorySelling&trade;</div>
+        <div class="mc-desc">The copyrighted storytelling system every Narrative company runs on — the repeatable framework that's driven $28.6M+ in sales and trained hundreds to turn their message into money.</div>
+      </div>
+      <span class="mc-link">Visit narrativestoryselling.com <span class="arr">&rarr;</span></span>
+    </a>
+  </div>
+</section>
 
 <!-- ===== CHARGE BAND ===== -->
 <section class="charge">
@@ -665,41 +702,6 @@
   </div>
 </section>
 
-<!-- ===== PORTFOLIO COMPANIES ===== -->
-<section class="portfolio" id="portfolio">
-  <div class="container">
-    <div class="portfolio-head">
-      <div class="eyebrow">Portfolio Companies</div>
-      <h2>One idea. <em>Two companies.</em></h2>
-      <p>Both Narrative companies run on the same idea — communicate your value so clearly you're impossible to ignore. Here's where that work lives.</p>
-    </div>
-    <div class="portfolio-grid">
-      <div class="pf-card" id="revenue">
-        <img class="pf-icon" src="narrative-revenue-icon.png" alt="" aria-hidden="true" />
-        <div class="pf-name">Narrative Revenue</div>
-        <div class="pf-tag">Get paid what you're worth</div>
-        <div class="pf-desc">Sales consultancy for coaches, consultants, and founders. The behavioral science of why buyers say yes — so you can sell what you already do, without ever feeling like someone you're not.</div>
-        <a href="https://www.narrativerevenue.com" target="_blank" rel="noopener" class="pf-link">Visit narrativerevenue.com <span class="arr">&rarr;</span></a>
-      </div>
-      <div class="pf-card" id="careers">
-        <img class="pf-icon" src="narrative-careers-icon.png" alt="" aria-hidden="true" />
-        <div class="pf-name">Narrative Careers</div>
-        <div class="pf-tag">Skip the debt. Own your story.</div>
-        <div class="pf-desc">A career-coaching program for 16–21 year olds. We position, place, and coach them all the way to a guaranteed job offer — without the degree, the debt, or the wait.</div>
-        <a href="https://www.narrativecareers.com" target="_blank" rel="noopener" class="pf-link">Visit narrativecareers.com <span class="arr">&rarr;</span></a>
-      </div>
-    </div>
-    <a class="method-callout" id="storyselling" href="https://www.narrativestoryselling.com" target="_blank" rel="noopener">
-      <div class="mc-text">
-        <div class="mc-eyebrow">The methodology behind both</div>
-        <div class="mc-name">Narrative StorySelling&trade;</div>
-        <div class="mc-desc">The copyrighted storytelling system every Narrative company runs on — the repeatable framework that's driven $28.6M+ in sales and trained hundreds to turn their message into money.</div>
-      </div>
-      <span class="mc-link">Visit narrativestoryselling.com <span class="arr">&rarr;</span></span>
-    </a>
-  </div>
-</section>
-
 <!-- ===== CONNECT ===== -->
 <section class="connect">
   <div class="container">
@@ -763,29 +765,29 @@
   <div class="container">
     <div class="eyebrow">Ready when you are</div>
     <h2>Are you ready to be <em>impossible to ignore?</em></h2>
-    <p>Tell me what you're building. You'll hear back from me — not a junior hire.</p>
+    <p>Tell me what you're building. I can't wait to hear from you.</p>
     <a href="contact.html" class="btn btn-on-ink fc-btn">Get in touch <span class="arr">&rarr;</span></a>
+  </div>
+  <div class="final-wave" aria-hidden="true">
+    <svg viewBox="0 0 1440 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="pfWave" x1="0" y1="0" x2="1440" y2="0" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#E921A8"/>
+          <stop offset="0.5" stop-color="#B163E6"/>
+          <stop offset="1" stop-color="#8ecbe2"/>
+        </linearGradient>
+      </defs>
+      <g fill="none" stroke-linecap="round">
+        <path d="M0 170 C90 138,270 138,360 170 C450 202,630 202,720 170 C810 138,990 138,1080 170 C1170 202,1350 202,1440 170" stroke="#8ecbe2" stroke-opacity="0.18" stroke-width="1.5"/>
+        <path d="M0 130 C90 104,270 104,360 130 C450 156,630 156,720 130 C810 104,990 104,1080 130 C1170 156,1350 156,1440 130" stroke="#8ecbe2" stroke-opacity="0.5" stroke-width="2.5"/>
+        <path d="M0 150 C90 116,270 116,360 150 C450 184,630 184,720 150 C810 116,990 116,1080 150 C1170 184,1350 184,1440 150" stroke="url(#pfWave)" stroke-opacity="0.9" stroke-width="2.5"/>
+        <path d="M0 108 C90 90,270 90,360 108 C450 126,630 126,720 108 C810 90,990 90,1080 108 C1170 126,1350 126,1440 108" stroke="#cde9f4" stroke-opacity="0.28" stroke-width="1.5"/>
+      </g>
+    </svg>
   </div>
 </section>
 
 <!-- ===== FOOTER ===== -->
-<div class="pre-footer" aria-hidden="true">
-  <svg viewBox="0 0 1440 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <linearGradient id="pfWave" x1="0" y1="0" x2="1440" y2="0" gradientUnits="userSpaceOnUse">
-        <stop offset="0" stop-color="#E921A8"/>
-        <stop offset="0.5" stop-color="#B163E6"/>
-        <stop offset="1" stop-color="#8ecbe2"/>
-      </linearGradient>
-    </defs>
-    <g fill="none" stroke-linecap="round">
-      <path d="M0 170 C90 138,270 138,360 170 C450 202,630 202,720 170 C810 138,990 138,1080 170 C1170 202,1350 202,1440 170" stroke="#8ecbe2" stroke-opacity="0.18" stroke-width="1.5"/>
-      <path d="M0 130 C90 104,270 104,360 130 C450 156,630 156,720 130 C810 104,990 104,1080 130 C1170 156,1350 156,1440 130" stroke="#8ecbe2" stroke-opacity="0.5" stroke-width="2.5"/>
-      <path d="M0 150 C90 116,270 116,360 150 C450 184,630 184,720 150 C810 116,990 116,1080 150 C1170 184,1350 184,1440 150" stroke="url(#pfWave)" stroke-opacity="0.9" stroke-width="2.5"/>
-      <path d="M0 108 C90 90,270 90,360 108 C450 126,630 126,720 108 C810 90,990 90,1080 108 C1170 126,1350 126,1440 108" stroke="#cde9f4" stroke-opacity="0.28" stroke-width="1.5"/>
-    </g>
-  </svg>
-</div>
 <footer>
   <div class="main">
     <div class="container foot-grid">
