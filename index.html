@@ -24,6 +24,7 @@
     --pink:#E921A8;
     --purple:#B163E6;
     --powder:#a883f8;
+    --gold:#A8842B;--gold-champagne:#CDB06A;
     --gradient:linear-gradient(90deg,#E921A8 0%,#B163E6 50%,#a883f8 100%);
     --cream-on-ink:rgba(250,246,239,0.82);
     --serif:'Source Serif 4','Georgia',serif;
@@ -56,6 +57,7 @@
   .btn-primary:hover{background:var(--teal);box-shadow:0 12px 26px -14px rgba(27,29,34,.5)}
   .btn-on-ink{background:var(--bone);color:var(--ink)}
   .btn-on-ink:hover{background:var(--sky);color:var(--ink)}
+  .proven .btn-on-ink:hover{background:var(--gold-champagne);color:var(--ink)}
   .btn-ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1px var(--hairline-2)}
   .btn-ghost:hover{background:var(--ink);color:var(--bone)}
   .btn-ghost-light{background:transparent;color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.6)}
@@ -99,7 +101,7 @@
   .hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;color:#fff;overflow:hidden;background:#15161a}
   .hero-video{position:absolute;inset:0;z-index:0;overflow:hidden;background:#15161a url('me.png') center/cover}
   .hero-video video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
-  .hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(rgba(20,21,26,.58),rgba(20,21,26,.64))}
+  .hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(rgba(20,21,26,.70),rgba(20,21,26,.84))}
   .hero h1,.hero .lede,.hero .scroll{position:relative;z-index:2}
   .hero h1{font-size:clamp(54px,8.6vw,124px);line-height:.98;font-weight:500;letter-spacing:-0.03em;max-width:1080px}
   .hero h1 em{color:var(--sky);font-style:italic}
@@ -107,6 +109,10 @@
   .hero h1 .caret{display:inline-block;width:3px;height:.82em;margin-left:4px;vertical-align:-0.06em;background:currentColor;color:var(--sky);animation:blink 1s steps(1) infinite}
   @keyframes blink{50%{opacity:0}}
   .hero .lede{margin-top:30px;max-width:600px;color:var(--cream-on-ink)}
+  .hero .hero-cred{position:relative;z-index:2;display:inline-flex;align-items:center;gap:8px;margin:0 0 26px;padding:9px 18px;border:1px solid rgba(255,255,255,.22);border-radius:999px;background:rgba(255,255,255,.07);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.82)}
+  .hero .hero-cred em{font-style:italic;color:inherit;text-transform:uppercase;letter-spacing:inherit;font-weight:600}
+  .hero .hero-cred a{text-decoration:none;transition:opacity .2s}
+  .hero .hero-cred a:hover{opacity:.78}
   .hero .scroll{position:absolute;bottom:30px;display:flex;flex-direction:column;align-items:center;gap:8px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.6)}
   .hero .scroll-arrow{font-size:18px;line-height:1;animation:scrollbob 1.8s ease-in-out infinite}
   @keyframes scrollbob{0%,100%{transform:translateY(0);opacity:.55}50%{transform:translateY(5px);opacity:1}}
@@ -148,16 +154,16 @@
 
   /* ---------- PROVEN SYSTEM ---------- */
   .proven{position:relative;color:#fff;padding:150px 0;overflow:hidden;background:var(--ink)}
-  .proven::before{content:"";position:absolute;inset:0;z-index:0;background:radial-gradient(60% 70% at 50% 80%,rgba(118,44,255,.18),transparent 62%)}
+  .proven::before{content:"";position:absolute;inset:0;z-index:0;background:radial-gradient(60% 70% at 50% 80%,rgba(168,132,43,.20),transparent 62%)}
   .proven .container{position:relative;z-index:1}
-  .proven .eyebrow{margin-bottom:18px}
+  .proven .eyebrow{margin-bottom:18px;color:var(--gold-champagne)}
   .proven h2{font-weight:500;font-size:clamp(36px,5.2vw,72px);line-height:1.02;max-width:1000px;letter-spacing:-0.022em}
-  .proven h2 em{color:var(--sky);font-style:italic}
+  .proven h2 em{color:var(--gold-champagne);font-style:italic}
   .proven p{max-width:980px;margin:28px 0 38px;font-size:18px;color:var(--cream-on-ink)}
   .proven p b{font-weight:600;color:#fff}
   .fw-teaser{margin:0 0 38px;padding-top:34px;border-top:1px solid rgba(255,255,255,0.14)}
   .fwt-label{font-family:var(--sans);font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(250,246,239,.6);margin-bottom:20px}
-  .fwt-label em{font-style:normal;color:var(--sky)}
+  .fwt-label em{font-style:normal;color:var(--gold-champagne)}
   .fw-wave{max-width:960px;margin:2px 0}
   .fw-wave svg{display:block;width:100%;height:auto;overflow:visible}
   .fwv-title{font-family:var(--serif);font-size:21px;fill:var(--bone);letter-spacing:-0.01em}
@@ -171,7 +177,7 @@
   .fw-wave.in .fw-arc-beat:nth-of-type(5){transition-delay:1.7s}
   @media(prefers-reduced-motion:reduce){.fw-arc-line{stroke-dashoffset:0;transition:none}.fw-arc-beat{opacity:1}}
   @media(max-width:640px){.fwv-title{font-size:34px}}
-  .fwt-link{display:inline-flex;align-items:center;gap:8px;margin-top:24px;font-family:var(--sans);font-weight:600;font-size:14px;color:var(--sky)}
+  .fwt-link{display:inline-flex;align-items:center;gap:8px;margin-top:24px;font-family:var(--sans);font-weight:600;font-size:14px;color:var(--gold-champagne)}
   .fwt-link:hover{text-decoration:underline}
   .fwt-link:hover .arr{transform:translateX(4px)}
 
@@ -267,10 +273,10 @@
   .method-callout{margin-top:20px;display:flex;align-items:center;justify-content:space-between;gap:32px;padding:30px 38px;border-radius:18px;background:var(--ink);color:var(--bone);text-decoration:none;transition:transform .2s,box-shadow .25s}
   .method-callout:hover{transform:translateY(-3px);box-shadow:0 20px 44px -26px rgba(27,29,34,.55)}
   .method-callout:hover .mc-link .arr{transform:translateX(4px)}
-  .mc-eyebrow{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--sky)}
+  .mc-eyebrow{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-champagne)}
   .mc-name{font-family:var(--serif);font-weight:500;font-size:26px;letter-spacing:-0.015em;margin-top:9px;line-height:1.1}
   .mc-desc{margin-top:11px;font-size:15px;line-height:1.55;color:rgba(252,248,242,.68);max-width:660px}
-  .mc-link{flex:none;display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--sky);white-space:nowrap}
+  .mc-link{flex:none;display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--gold-champagne);white-space:nowrap}
   .mc-link .arr{display:inline-block;transition:transform .25s}
   @media(max-width:680px){.method-callout{flex-direction:column;align-items:flex-start;gap:18px;padding:26px 24px}}
   .pf-card{display:flex;flex-direction:column;padding:32px;border:1px solid var(--hairline);border-radius:18px;background:var(--bone-soft);scroll-margin-top:90px;transition:transform .2s,box-shadow .25s,border-color .2s}
@@ -404,6 +410,7 @@
     </video>
   </div>
   <div class="hero-overlay"></div>
+  <p class="hero-cred">Founder of The Narrative Companies&trade; · Author of <a href="https://www.amazon.com/How-Sell-Story-Message-Faster/dp/B0FV3L6LKT/" target="_blank" rel="noopener"><em>How to Sell with Story</em></a></p>
   <h1>Make your <span class="typed" id="typed"></span><span class="caret" id="caret"></span><br>impossible to ignore.</h1>
   <p class="lede">The science-backed revenue system for solopreneurs & founders who want to scale their business without selling harder or shouting louder.</p>
   <div class="scroll">Scroll<span class="scroll-arrow" aria-hidden="true">&darr;</span></div>
@@ -432,7 +439,7 @@
     <span>The Narrative Companies™</span>
     <span>YouTube</span>
     <span>Instagram</span>
-    <span>ClickUp</span>
+    <span>How to Sell With Story</span>
     <span><i>differentiated*</i></span>
     <span>TikTok</span>
   </div>
@@ -698,17 +705,17 @@
         <svg viewBox="0 0 1000 360" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The five-beat Narrative StorySelling method as a story arc: Opportunity, Problem, Solution, Action, then Transformation.">
           <defs>
             <linearGradient id="cfArcGrad" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0" stop-color="#5CA1C1"/>
-              <stop offset="0.58" stop-color="#752cff"/>
-              <stop offset="1" stop-color="#E921A8"/>
+              <stop offset="0" stop-color="#8C6E1C"/>
+              <stop offset="0.58" stop-color="#C9A227"/>
+              <stop offset="1" stop-color="#E7CE80"/>
             </linearGradient>
           </defs>
           <path class="fw-arc-line" d="M110,175 C 207.5,175 207.5,300 305,300 C 402.5,300 402.5,220 500,220 C 597.5,220 597.5,160 695,160 C 792.5,160 792.5,110 890,110" stroke="url(#cfArcGrad)" stroke-width="3" stroke-linecap="round"/>
-          <g class="fw-arc-beat"><text class="fwv-title" x="110" y="149" text-anchor="middle">Opportunity</text><circle cx="110" cy="175" r="8" fill="#5CA1C1"/></g>
-          <g class="fw-arc-beat"><text class="fwv-title" x="305" y="274" text-anchor="middle">Problem</text><circle cx="305" cy="300" r="8" fill="#676FDC"/></g>
-          <g class="fw-arc-beat"><text class="fwv-title" x="500" y="194" text-anchor="middle">Solution</text><circle cx="500" cy="220" r="8" fill="#752cff"/></g>
-          <g class="fw-arc-beat"><text class="fwv-title" x="695" y="134" text-anchor="middle">Action</text><circle cx="695" cy="160" r="8" fill="#A428DC"/></g>
-          <g class="fw-arc-beat"><text class="fwv-title" x="890" y="84" text-anchor="middle">Transformation</text><circle cx="890" cy="110" r="8" fill="#E921A8"/></g>
+          <g class="fw-arc-beat"><text class="fwv-title" x="110" y="149" text-anchor="middle">Opportunity</text><circle cx="110" cy="175" r="8" fill="#8C6E1C"/></g>
+          <g class="fw-arc-beat"><text class="fwv-title" x="305" y="274" text-anchor="middle">Problem</text><circle cx="305" cy="300" r="8" fill="#A8842B"/></g>
+          <g class="fw-arc-beat"><text class="fwv-title" x="500" y="194" text-anchor="middle">Solution</text><circle cx="500" cy="220" r="8" fill="#C9A227"/></g>
+          <g class="fw-arc-beat"><text class="fwv-title" x="695" y="134" text-anchor="middle">Action</text><circle cx="695" cy="160" r="8" fill="#D9BE6E"/></g>
+          <g class="fw-arc-beat"><text class="fwv-title" x="890" y="84" text-anchor="middle">Transformation</text><circle cx="890" cy="110" r="8" fill="#E7CE80"/></g>
         </svg>
       </div>
       <a class="fwt-link" href="https://www.narrativestoryselling.com" target="_blank" rel="noopener">See the full framework <span class="arr">&rarr;</span></a>
@@ -764,7 +771,7 @@
       <img src="book-cover.jpg" alt="How to Sell with Story by Chris Ford">
     </div>
     <div class="bookfeature-text">
-      <div class="eyebrow">From the founder</div>
+      <div class="eyebrow">The Book · #1 Amazon New Release</div>
       <h2>The methodology is also <em>a book.</em></h2>
       <p><b>How to Sell with Story</b> is the Narrative playbook for turning your message into money and closing deals faster — the same story-first thinking behind every Narrative engagement.</p>
       <p class="bookfeature-quote">"You can close more deals without changing what you sell."</p>
