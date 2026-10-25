@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Narrative Academy | Chris Ford</title>
+<meta name="description" content="Narrative Academy is where Chris Ford teaches the system live, in small cohorts, so experts can turn what they know into a business that pays.">
+<link rel="icon" href="ChrisFord-favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500&family=Inter+Tight:wght@400;500;600;700&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --night:#05141a;--night-2:#0a1c23;--panel-d:rgba(255,255,255,.035);--line-d:rgba(255,255,255,.09);
+    --bone:#fcf8f2;--bone-soft:#f3ece1;--ink:#1B1D22;--ink-soft:rgba(27,29,34,.72);--muted:rgba(27,29,34,.6);
+    --hairline:rgba(27,29,34,.14);--hairline-2:rgba(27,29,34,.3);
+    --teal:#0F4761;--sky:#8ecbe2;--offwhite:#f5f3ef;--muted-d:rgba(221,233,232,.7);
+    --serif:'Lora','Source Serif 4','Georgia',serif;--sans:'Inter Tight',ui-sans-serif,system-ui,sans-serif;--display:'Figtree','Inter Tight',sans-serif;
+    --maxw:1180px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);background:var(--night);color:var(--offwhite);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;letter-spacing:-0.005em}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .container{max-width:var(--maxw);margin:0 auto;padding:0 28px;width:100%}
+  .eyebrow{font-size:12.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--sky)}
+  em{font-style:italic;color:var(--sky)}
+  section{position:relative}
+
+  /* NAV */
+  header{position:absolute;top:0;left:0;right:0;z-index:30}
+  nav{max-width:var(--maxw);margin:0 auto;padding:26px 28px;display:flex;align-items:center;justify-content:space-between}
+  .logo img{height:24px;width:auto}
+  .navlinks{display:flex;align-items:center;gap:30px}
+  .navlinks > a:not(.btn){font-size:14.5px;font-weight:600;color:rgba(245,243,239,.82);transition:color .2s}
+  .navlinks > a:not(.btn):hover,.navlinks > a.active{color:#fff}
+  .btn{display:inline-flex;align-items:center;gap:9px;padding:13px 24px;border-radius:100px;font-family:var(--sans);font-size:14.5px;font-weight:600;transition:transform .2s,background .18s,color .18s,box-shadow .2s;line-height:1;cursor:pointer}
+  .btn-ghost-light{background:transparent;color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.55)}
+  .btn-ghost-light:hover{background:#fff;color:var(--ink)}
+  .btn-primary{background:var(--offwhite);color:var(--ink)}
+  .btn-primary:hover{background:var(--sky);color:var(--ink);transform:translateY(-1px)}
+  .btn-teal{background:var(--teal);color:#fff}
+  .btn-teal:hover{background:var(--sky);color:var(--ink);transform:translateY(-1px)}
+  .btn-lg{padding:17px 34px;font-size:16px}
+  .arr{transition:transform .25s}
+  .btn:hover .arr{transform:translateX(4px)}
+
+  /* HERO */
+  .ac-hero{min-height:88vh;display:flex;align-items:center;overflow:hidden;padding:160px 0 90px}
+  .ac-hero-bg{position:absolute;inset:0;z-index:0;background:url('9ad027d9-dcc8-4172-824a-05775c7fd65f.jpeg') center 28%/cover}
+  .ac-hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,16,21,.72),rgba(4,16,21,.82) 60%,rgba(5,20,26,.96))}
+  .ac-hero .container{position:relative;z-index:1}
+  .ac-hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(44px,7vw,92px);line-height:1.0;letter-spacing:-0.02em;color:var(--offwhite);max-width:16ch;margin:22px 0 0}
+  .ac-hero h1 em{font-style:italic;color:var(--sky)}
+  .ac-hero .lede{margin-top:26px;max-width:560px;color:var(--muted-d);font-size:19px}
+  .ac-hero .ctas{margin-top:38px;display:flex;gap:14px;flex-wrap:wrap}
+
+  /* SECTION SHELLS */
+  .sec{padding:clamp(80px,9vw,128px) 0}
+  .sec.dark{background:var(--night)}
+  .sec.dark-2{background:var(--night-2)}
+  .sec.bone{background:var(--bone);color:var(--ink)}
+  .sec.bone .eyebrow{color:var(--teal)}
+  .sec.bone em{color:var(--teal)}
+  .sec h2{font-family:var(--serif);font-weight:500;font-size:clamp(32px,4.4vw,58px);line-height:1.02;letter-spacing:-0.02em;max-width:18ch}
+  .sec.center{text-align:center}
+  .sec.center h2,.sec.center .lede{margin-left:auto;margin-right:auto}
+  .sec .lede{margin-top:22px;font-size:18px;max-width:640px;line-height:1.6}
+  .sec.dark .lede,.sec.dark-2 .lede{color:var(--muted-d)}
+  .sec.bone .lede{color:var(--ink-soft)}
+  .head-eyebrow{margin-bottom:16px}
+
+  /* WHAT IT IS split */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,5vw,72px);align-items:center}
+  .split .media{aspect-ratio:4/5;border-radius:24px;background:#223 center/cover;background-image:url('stage.jpeg')}
+  .split p + p{margin-top:16px}
+
+  /* WHO cards */
+  .who-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+  .chip{display:inline-flex;align-items:center;gap:9px;padding:11px 20px;border-radius:100px;border:1px solid var(--line-d);background:var(--panel-d);font-size:15px;font-weight:600;color:var(--offwhite)}
+  .chip .dot{width:7px;height:7px;border-radius:50%;background:var(--sky)}
+
+  /* OFFER grid */
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:clamp(40px,4vw,56px)}
+  .card{padding:clamp(28px,2.6vw,38px);border-radius:22px;background:var(--bone-soft);border:1px solid var(--hairline);display:flex;flex-direction:column}
+  .sec.dark .card,.sec.dark-2 .card{background:var(--panel-d);border-color:var(--line-d)}
+  .card .k{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:14px}
+  .sec.dark .card .k,.sec.dark-2 .card .k{color:var(--sky)}
+  .card h3{font-family:var(--serif);font-weight:500;font-size:24px;letter-spacing:-0.012em;line-height:1.1;margin-bottom:12px}
+  .card p{font-size:15.5px;line-height:1.55;color:var(--ink-soft);flex:1}
+  .sec.dark .card p,.sec.dark-2 .card p{color:var(--muted-d)}
+
+  /* HOW steps */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:clamp(40px,4vw,56px)}
+  .step{padding:clamp(28px,2.6vw,38px);border-radius:22px;background:var(--panel-d);border:1px solid var(--line-d)}
+  .step .n{width:46px;height:46px;border-radius:50%;background:var(--sky);color:var(--night);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:700;font-size:19px;margin-bottom:20px}
+  .step h3{font-family:var(--serif);font-weight:500;font-size:22px;letter-spacing:-0.012em;margin-bottom:10px}
+  .step p{color:var(--muted-d);font-size:15.5px;line-height:1.55}
+
+  /* COHORTS */
+  .cohort-card{margin-top:clamp(36px,4vw,48px);display:grid;grid-template-columns:1.2fr .8fr;gap:36px;align-items:center;padding:clamp(34px,4vw,52px);border-radius:26px;background:var(--panel-d);border:1px solid var(--line-d)}
+  .cohort-card .k{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--sky);margin-bottom:12px}
+  .cohort-card h3{font-family:var(--serif);font-weight:500;font-size:clamp(24px,2.6vw,34px);line-height:1.08;letter-spacing:-0.015em}
+  .cohort-card p{margin-top:12px;color:var(--muted-d);font-size:16px;max-width:520px}
+  .cohort-card .act{display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+
+  /* OUT CTA */
+  .out{background:var(--sky);color:var(--ink);text-align:center}
+  .out h2{font-family:var(--serif);font-weight:500;font-size:clamp(36px,5vw,66px);line-height:1.0;letter-spacing:-0.02em;margin:0 auto;max-width:16ch;color:var(--ink)}
+  .out p{margin:22px auto 0;max-width:560px;font-size:18px;color:rgba(27,29,34,.78)}
+  .out .btn-teal{margin-top:34px}
+  .out .note{margin-top:16px;font-size:13.5px;color:rgba(27,29,34,.6)}
+
+  /* FOOTER */
+  footer .main{background:var(--bone);color:var(--ink);padding:60px 0 56px}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:30px;align-items:start}
+  .foot-logo img{height:38px;width:auto}
+  .foot-col a{display:block;font-weight:500;font-size:15.5px;margin-bottom:16px;color:var(--ink-soft)}
+  .foot-col a:hover{color:var(--teal)}
+  .foot-cta .btn{justify-content:center;width:100%}
+  .foot-bottom{background:var(--ink);color:rgba(250,246,239,.66);text-align:center;padding:22px;font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+
+  @media(max-width:900px){
+    .split,.grid3,.steps,.cohort-card,.foot-grid{grid-template-columns:1fr}
+    .split .media{aspect-ratio:16/10}
+    .cohort-card{gap:22px}
+  }
+  @media(max-width:680px){
+    .navlinks{display:none}
+    .foot-grid{grid-template-columns:1fr 1fr}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<header>
+  <nav>
+    <a href="index.html" class="logo"><img src="cford.png" alt="Chris Ford"></a>
+    <div class="navlinks">
+      <a href="chris-story.html">Chris' Story</a>
+      <a href="narrative-academy.html" class="active">Narrative Academy</a>
+      <a href="index.html#book">The Book</a>
+      <a href="contact.html" class="btn btn-ghost-light">Work with me</a>
+    </div>
+  </nav>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="ac-hero">
+  <div class="ac-hero-bg" aria-hidden="true"></div>
+  <div class="container">
+    <div class="eyebrow">Narrative Academy</div>
+    <h1>Learn the system. Build it live. <em>Get paid.</em></h1>
+    <p class="lede">Narrative Academy is where I teach the whole system in person, in small cohorts, so you can turn what you already know into a business that actually pays.</p>
+    <div class="ctas">
+      <a href="#cohorts" class="btn btn-primary btn-lg">See upcoming cohorts <span class="arr">&rarr;</span></a>
+      <a href="#visit" class="btn btn-ghost-light btn-lg">What's inside</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHAT IT IS ===== -->
+<section class="sec bone">
+  <div class="container">
+    <div class="split">
+      <div>
+        <div class="eyebrow head-eyebrow">What it is</div>
+        <h2>Not another course you never finish.</h2>
+        <p class="lede">Narrative Academy is live and cohort-based. A few times a year I open a small program or masterclass and walk you through the exact system I use with private clients: clarity, message, content, and closing.</p>
+        <p class="lede">You don't just learn it. You build it in real time, with me and a room of people on the same mission. By the end, you don't have notes. You have a brand that works.</p>
+      </div>
+      <div class="media" aria-hidden="true"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHO IT'S FOR ===== -->
+<section class="sec dark">
+  <div class="container">
+    <div class="eyebrow head-eyebrow">Who it's for</div>
+    <h2>For experts who know they're <em>made for more.</em></h2>
+    <p class="lede">If you have hard-won knowledge and you're ready to get paid for it, you're in the right room.</p>
+    <div class="who-row">
+      <span class="chip"><span class="dot"></span>Coaches</span>
+      <span class="chip"><span class="dot"></span>Consultants</span>
+      <span class="chip"><span class="dot"></span>Freelancers</span>
+      <span class="chip"><span class="dot"></span>Creators</span>
+      <span class="chip"><span class="dot"></span>Experts</span>
+      <span class="chip"><span class="dot"></span>Career switchers</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHAT WE OFFER ===== -->
+<section class="sec bone" id="visit">
+  <div class="container">
+    <div class="eyebrow head-eyebrow">What we offer</div>
+    <h2>Programs built around what you need next.</h2>
+    <p class="lede">Every cohort is focused on one outcome, so you always know exactly what you're walking away with.</p>
+    <div class="grid3">
+      <div class="card">
+        <div class="k">Masterclass</div>
+        <h3>Story that sells</h3>
+        <p>Turn your message into something people remember, trust, and buy, using the Narrative StorySelling&trade; method.</p>
+      </div>
+      <div class="card">
+        <div class="k">Flagship</div>
+        <h3>Personal Brand Accelerator</h3>
+        <p>Build the positioning, content engine, and offer that turn your expertise into a brand that gets paid.</p>
+      </div>
+      <div class="card">
+        <div class="k">Intensive</div>
+        <h3>Sales &amp; closing</h3>
+        <p>The sales messaging that turns conversations into clients, without feeling pushy or salesy.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HOW IT WORKS ===== -->
+<section class="sec dark-2">
+  <div class="container">
+    <div class="eyebrow head-eyebrow">How it works</div>
+    <h2>Small cohorts. Real feedback. Built as you go.</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="n">1</div>
+        <h3>Join a cohort</h3>
+        <p>Grab a seat when doors open. Cohorts stay small on purpose, so you get real attention.</p>
+      </div>
+      <div class="step">
+        <div class="n">2</div>
+        <h3>Learn live, build live</h3>
+        <p>We work through the system together in live sessions, and you build your own as we go.</p>
+      </div>
+      <div class="step">
+        <div class="n">3</div>
+        <h3>Walk away with it done</h3>
+        <p>You leave with your message, content, and offer in place, ready to get paid for what you know.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== UPCOMING COHORTS ===== -->
+<section class="sec dark" id="cohorts">
+  <div class="container">
+    <div class="eyebrow head-eyebrow">Upcoming cohorts</div>
+    <h2>New cohorts open throughout the year.</h2>
+    <p class="lede">Seats are limited and they fill fast. Keep an eye out for the next one, or get on the list and I'll tell you the moment doors open.</p>
+    <div class="cohort-card">
+      <div>
+        <div class="k">Next cohort</div>
+        <h3>Dates announced soon</h3>
+        <p>Enrollment opens a few weeks before each cohort begins. Get on the list so you don't miss it.</p>
+      </div>
+      <div class="act">
+        <a href="https://thenarrativeacademy.com" target="_blank" rel="noopener" class="btn btn-teal">Get on the list <span class="arr">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== OUT CTA ===== -->
+<section class="sec out">
+  <div class="container">
+    <h2>Ready to build yours?</h2>
+    <p>Everything lives at Narrative Academy. Head over to see current programs, dates, and enrollment.</p>
+    <a href="https://thenarrativeacademy.com" target="_blank" rel="noopener" class="btn btn-teal btn-lg">Go to Narrative Academy <span class="arr">&rarr;</span></a>
+    <div class="note">Opens thenarrativeacademy.com in a new tab.</div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="main">
+    <div class="container foot-grid">
+      <div class="foot-logo"><img src="cford-black.png" alt="Chris Ford"></div>
+      <div class="foot-col">
+        <a href="https://www.narrativerevenue.com" target="_blank" rel="noopener">Narrative Revenue</a>
+        <a href="narrative-academy.html">Narrative Academy</a>
+      </div>
+      <div class="foot-col">
+        <a href="https://www.narrativestoryselling.com" target="_blank" rel="noopener">Narrative StorySelling&trade;</a>
+        <a href="https://www.amazon.com/How-Sell-Story-Message-Faster/dp/B0FV3L6LKT/" target="_blank" rel="noopener">The Book</a>
+      </div>
+      <div class="foot-cta">
+        <a href="contact.html" class="btn btn-primary">Get in touch</a>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    Copyright 2026 The Narrative Companies&trade; &middot; All Rights Reserved
+  </div>
+</footer>
+
+</body>
+</html>
