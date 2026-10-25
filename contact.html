@@ -3,17 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Get in touch — Chris Ford</title>
+<title>Work with me — Chris Ford</title>
 <link rel="icon" href="ChrisFord-favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500&family=Inter+Tight:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
     --bone:#fcf8f2;--bone-soft:#f3ece1;--ink:#1B1D22;--ink-soft:rgba(27,29,34,0.72);
     --muted:rgba(27,29,34,0.62);--hairline:rgba(27,29,34,0.14);--hairline-2:rgba(27,29,34,0.30);
     --teal:#0F4761;--sky:#8ecbe2;--cream-on-ink:rgba(250,246,239,0.82);
     --serif:'Source Serif 4','Georgia',serif;--sans:'Inter Tight',ui-sans-serif,system-ui,sans-serif;
+    --display:'Plus Jakarta Sans','Inter Tight',sans-serif;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
@@ -27,17 +28,17 @@
   header{padding:26px 0}
   header .container{max-width:1180px;display:flex;align-items:center;justify-content:space-between}
   .logo img{height:24px;width:auto}
-  .back{font-size:14px;font-weight:500;color:var(--cream-on-ink)}
+  .back{font-size:14px;font-weight:700;color:var(--cream-on-ink)}
   .back:hover{color:#fff}
 
   main{flex:1;display:flex;align-items:center;padding:50px 0 80px}
   .lead{max-width:560px}
   .lead .eyebrow{margin-bottom:18px}
-  .lead h1{font-family:var(--serif);font-weight:500;font-size:clamp(40px,6vw,72px);line-height:1.0;letter-spacing:-0.03em;margin-bottom:22px}
+  .lead h1{font-family:var(--display);font-weight:700;font-size:clamp(40px,6vw,72px);line-height:1.0;letter-spacing:-0.03em;margin-bottom:22px}
   .lead p{color:var(--cream-on-ink);font-size:18px;max-width:480px}
   .grid{display:grid;grid-template-columns:1fr 1.05fr;gap:56px;align-items:center;width:100%}
 
-  form{background:var(--bone);color:var(--ink);border-radius:18px;padding:34px}
+  form{background:var(--bone);color:var(--ink);border-radius:22px;padding:34px}
   .field{margin-bottom:18px}
   .field label{display:block;font-size:13px;font-weight:600;letter-spacing:.04em;margin-bottom:7px;color:var(--ink-soft)}
   .field input,.field textarea{width:100%;padding:13px 15px;border:1px solid var(--hairline-2);border-radius:10px;background:#fff;font-family:var(--sans);font-size:15px;color:var(--ink);outline:none;transition:border-color .15s}
@@ -48,8 +49,8 @@
   .btn:hover{background:var(--teal);transform:translateY(-1px)}
   .btn[disabled]{opacity:.6;cursor:default;transform:none}
   .note{margin-top:14px;font-size:12.5px;color:var(--muted);text-align:center}
-  .success{display:none;background:var(--bone);color:var(--ink);border-radius:18px;padding:48px 34px;text-align:center}
-  .success h2{font-family:var(--serif);font-weight:500;font-size:30px;margin-bottom:12px}
+  .success{display:none;background:var(--bone);color:var(--ink);border-radius:22px;padding:48px 34px;text-align:center}
+  .success h2{font-family:var(--display);font-weight:700;font-size:30px;margin-bottom:12px}
   .success p{color:var(--ink-soft)}
   .formerr{display:none;margin-top:14px;font-size:13px;color:#b3261e;text-align:center}
 
@@ -79,7 +80,7 @@
   <div class="container">
     <div class="grid">
       <div class="lead">
-        <div class="eyebrow">Get in touch</div>
+        <div class="eyebrow">Work with me</div>
         <h1>Let's <em>talk.</em></h1>
         <p>Tell me a little about you and what you're working on. I read every message — and you'll hear back from me, not a junior hire.</p>
       </div>
