@@ -339,7 +339,7 @@
   .bookfeature-cta{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap}
 
   /* ---------- FOOTER ---------- */
-  .final-cta{background:var(--ink);color:var(--bone);text-align:center;position:relative;overflow:hidden;padding:clamp(86px,11vw,150px) 0 clamp(24px,4vw,44px)}
+  .final-cta{background:var(--ink);color:var(--bone);text-align:center;position:relative;overflow:hidden;padding:clamp(96px,13vw,170px) 0}
   .final-cta .eyebrow{color:var(--sky);margin-bottom:24px}
   .final-cta h2{font-family:var(--serif);font-weight:500;font-size:clamp(40px,5.8vw,78px);line-height:1.03;letter-spacing:-0.02em;max-width:18ch;margin:0 auto;color:#fff}
   .final-cta h2 em{font-style:normal;color:var(--sky)}
@@ -444,7 +444,7 @@
   <div class="hero-overlay"></div>
   <p class="hero-cred"><span class="hc-a">Founder of The Narrative Companies&trade;</span><span class="hc-sep"> &middot; </span><span class="hc-b">Author of <a href="https://www.amazon.com/How-Sell-Story-Message-Faster/dp/B0FV3L6LKT/" target="_blank" rel="noopener"><em>How to Sell with Story</em></a></span></p>
   <h1>Make your <span class="typed" id="typed"></span><span class="caret" id="caret"></span><br>impossible to ignore.</h1>
-  <p class="lede">The science-backed revenue system for coaches & experts who want to scale their business without selling harder or shouting louder.</p>
+  <p class="lede">The brain-science revenue system for coaches & experts who want to scale their business without selling harder or shouting louder.</p>
   <div class="scroll">Scroll<span class="scroll-arrow" aria-hidden="true">&darr;</span></div>
 </section>
 
@@ -542,6 +542,16 @@
   .cine-card .guide,.cine-card .plan{background:transparent;padding:0}
   @media(max-width:900px){.cine-panel{min-height:0;padding:8vh clamp(16px,3vw,40px)}}
   @media(prefers-reduced-motion:reduce){.cine-bg{position:absolute;inset:0;height:100%;margin-bottom:0}.cine-panel{min-height:0;padding:clamp(40px,6vw,80px) clamp(16px,3vw,40px)}}
+  /* cinematic testimonials: pinned photo, one quote at a time */
+  .tcine-panel{text-align:center}
+  .tcine-card{max-width:920px;margin:0 auto}
+  .tcine-badge{display:inline-block;background:var(--sky);color:var(--night);font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:9px 18px;border-radius:100px;margin-bottom:clamp(24px,3vw,36px)}
+  .tcine-quote{font-family:var(--serif);font-weight:500;color:var(--offwhite);font-size:clamp(26px,4vw,52px);line-height:1.14;letter-spacing:-0.015em;margin:0}
+  .tcine-name{margin-top:clamp(26px,3vw,38px);font-family:var(--serif);font-size:clamp(20px,2vw,26px);color:#fff}
+  .tcine-role{margin-top:8px;font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted-d)}
+  .cine-bg-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .tcine-head{font-family:var(--serif);font-weight:500;color:var(--offwhite);font-size:clamp(34px,5vw,66px);line-height:1.05;letter-spacing:-0.02em}
+  .tcine-head em{color:var(--sky);font-style:italic}
   .stakes-head{font-family:var(--serif);font-weight:500;color:#fff;font-size:clamp(34px,5.4vw,72px);line-height:1.02;letter-spacing:-0.015em;max-width:900px}
   .stakes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.2vw,30px);margin:clamp(40px,5vw,64px) 0}
   .stake{padding:30px 30px 34px;border:1px solid rgba(255,255,255,.14);border-radius:20px;background:rgba(255,255,255,.055);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
@@ -723,7 +733,7 @@
           <div class="guide-grid">
             <div>
               <h2 class="sb-reveal">I help experts get paid <em>what they're worth.</em></h2>
-              <p class="intro sb-reveal">I've watched too many brilliant people stay broke. Not because they weren't good enough, but because no one taught them how to get paid for it. So I built the system: clarity, message, content, and closing, working together to turn what you know into real income. Now I bring it to experts like you.</p>
+              <p class="intro sb-reveal">Sales isn't magic. It's science. Premium buyers don't need more information. They need belief. For over a decade I've studied why people trust, choose, and buy, and used it to turn quiet expertise into real income. Now I bring that same system to experts like you.</p>
               <ul class="guide-proof sb-reveal">
                 <li>Drove <b>$28.6M+ in sales</b> with a proprietary storytelling system</li>
                 <li>Shaped go-to-market at companies scaled to billion-dollar valuations</li>
@@ -748,11 +758,11 @@
       <div class="cine-card">
         <div class="plan">
           <div class="eyebrow sb-reveal">The system</div>
-          <h2 class="sb-reveal">From expert to paid brand, in one system.</h2>
+          <h2 class="sb-reveal">From expert to paid brand, in three systems.</h2>
           <div class="plan-steps">
-            <div class="plan-step sb-reveal"><div class="step-n">1</div><h3>Get clear</h3><p>Nail what you do, who it's for, and why it has to be you.</p></div>
-            <div class="plan-step sb-reveal"><div class="step-n">2</div><h3>Get known</h3><p>A message and content engine that pulls the right people in.</p></div>
-            <div class="plan-step sb-reveal"><div class="step-n">3</div><h3>Get paid</h3><p>Sales messaging and closing that turns attention into income.</p></div>
+            <div class="plan-step sb-reveal"><div class="step-n">1</div><h3>The 7-Figure Brand System&trade;</h3><p>Craft your Signature Founder Story&trade; and Market Authority Blueprint&trade; so you become the obvious choice, not one of many.</p></div>
+            <div class="plan-step sb-reveal"><div class="step-n">2</div><h3>The Buyer Belief System&trade;</h3><p>Install the High-Ticket Buyer Psychology Blueprint&trade; so objections disappear before they start. People don't buy on logic. They buy on belief.</p></div>
+            <div class="plan-step sb-reveal"><div class="step-n">3</div><h3>The Million-Dollar Sales Story Formula&trade;</h3><p>Your 3-Tier Sales Story System&trade; of vision, proof, and objection-handling does the selling, so you never have to convince.</p></div>
           </div>
         </div>
       </div>
@@ -771,14 +781,6 @@
   .reel h2{font-family:var(--display);font-weight:700;color:#fff;font-size:clamp(28px,4vw,54px);line-height:1.08;letter-spacing:-0.02em;max-width:900px;margin:0 auto}
   .reel h2 em{color:var(--sky);font-style:italic}
 </style>
-<section class="reel" data-reel>
-  <video autoplay muted loop playsinline poster="chris-office-wide.png"><source src="hero-montage.mp4" type="video/mp4"></video>
-  <div class="reel-inner container">
-    <div class="reel-eyebrow">The results</div>
-    <h2>1,000's of experts helped. <em>$28.6M+ in sales.</em></h2>
-  </div>
-</section>
-
 <script>
   (function(){
     var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -822,24 +824,61 @@
   })();
 </script>
 
-<!-- Testimonials wall -->
-<section class="twall">
-  <div class="container">
-    <div class="eyebrow sb-reveal">Proof it works</div>
-    <h2 class="sb-reveal">People don't forget a clear story.</h2>
-    <div class="twall-grid">
-      <div class="tcard sb-reveal"><p>"You are such a master. Best storyteller around. This is so good. You are so good."</p><div class="by">Holly P.</div></div>
-      <div class="tcard sb-reveal"><p>"Chris' program has been the single most impactful thing for my growth this year."</p><div class="by">Kay V.</div></div>
-      <div class="tcard sb-reveal"><p>"The feedback was so positive that Revenue Leadership is incorporating it into all of our positioning moving forward."</p><div class="by">Sofia A.</div></div>
-      <div class="tcard sb-reveal"><p>"Copyright this ASAP and sell it as a program to everybody. It's really that good."</p><div class="by">Shaundra T.</div></div>
-      <div class="tcard sb-reveal"><p>"That was the best training I've ever gotten. It made me focus on solving the customer's core problem."</p><div class="by">Marie W.</div></div>
-      <div class="tcard sb-reveal"><p>"That was mind-blowingly good. Holy smokes, I'm impressed. This is storytelling gold."</p><div class="by">Stephanie E.</div></div>
-      <div class="tcard sb-reveal"><p>"Love this. This is foundational to how we'll win in the Enterprise."</p><div class="by">RJ F.</div></div>
-      <div class="tcard sb-reveal"><p>"Absolute gold for anyone in sales."</p><div class="by">Hunter B.</div></div>
-      <div class="tcard sb-reveal"><p>"World-class."</p><div class="by">Rogier D.</div></div>
+<!-- ===== RESULTS + CINEMATIC TESTIMONIALS: one pinned video, content cycles over it ===== -->
+<div class="cine-stage">
+  <div class="cine-bg" aria-hidden="true">
+    <video class="cine-bg-video" autoplay muted loop playsinline poster="chris-office-wide.png"><source src="hero-montage.mp4" type="video/mp4"></video>
+    <div class="cine-bg-tint"></div>
+  </div>
+  <div class="cine-flow">
+    <div class="cine-panel tcine-panel">
+      <div class="tcine-card">
+        <span class="tcine-badge">The results</span>
+        <div class="tcine-head">1,000's of experts helped. <em>$28.6M+ in sales.</em></div>
+      </div>
+    </div>
+    <div class="cine-panel tcine-panel">
+      <div class="tcine-card">
+        <span class="tcine-badge">Master storyteller</span>
+        <blockquote class="tcine-quote">"You are such a master. Best storyteller around. This is so good. You are so good."</blockquote>
+        <div class="tcine-name">Holly P.</div>
+        <div class="tcine-role">Creator</div>
+      </div>
+    </div>
+    <div class="cine-panel tcine-panel">
+      <div class="tcine-card">
+        <span class="tcine-badge">Most impactful thing this year</span>
+        <blockquote class="tcine-quote">"Chris' program has been the single most impactful thing for my growth this year."</blockquote>
+        <div class="tcine-name">Kay V.</div>
+        <div class="tcine-role">Coach</div>
+      </div>
+    </div>
+    <div class="cine-panel tcine-panel">
+      <div class="tcine-card">
+        <span class="tcine-badge">Storytelling gold</span>
+        <blockquote class="tcine-quote">"That was mind-blowingly good. Holy smokes, I'm impressed. This is storytelling gold."</blockquote>
+        <div class="tcine-name">Stephanie E.</div>
+        <div class="tcine-role">Expert</div>
+      </div>
+    </div>
+    <div class="cine-panel tcine-panel">
+      <div class="tcine-card">
+        <span class="tcine-badge">Best training I've had</span>
+        <blockquote class="tcine-quote">"That was the best training I've ever gotten. It made me focus on solving my customer's core problem."</blockquote>
+        <div class="tcine-name">Marie W.</div>
+        <div class="tcine-role">Business owner</div>
+      </div>
+    </div>
+    <div class="cine-panel tcine-panel">
+      <div class="tcine-card">
+        <span class="tcine-badge">Good enough to sell</span>
+        <blockquote class="tcine-quote">"Copyright this ASAP and sell it as a program to everybody. It's really that good."</blockquote>
+        <div class="tcine-name">Shaundra T.</div>
+        <div class="tcine-role">Founder</div>
+      </div>
     </div>
   </div>
-</section>
+</div>
 
 <!-- Paths -->
 <section class="paths">
@@ -913,7 +952,7 @@
   /* cinematic scroll-fade: blocks enter transparent, go opaque once in frame */
   (function(){
     var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var sel='.cine-card,.tcard';
+    var sel='.cine-card,.tcine-card';
     var els=[].slice.call(document.querySelectorAll(sel));
     if(!els.length)return;
     els.forEach(function(el){el.classList.add('cine');});
@@ -940,14 +979,18 @@
 <script>
   /* cinematic stage: crossfade the background photo to match the active card */
   (function(){
-    var layers=document.querySelectorAll('.cine-bg-layer');
-    var panels=document.querySelectorAll('.cine-panel');
-    if(layers.length<2||!panels.length)return;
-    var cur=-1,ticking=false;
+    var stages=[].slice.call(document.querySelectorAll('.cine-stage')).map(function(st){
+      return {layers:st.querySelectorAll('.cine-bg-layer'),panels:st.querySelectorAll('.cine-panel'),cur:-1};
+    }).filter(function(s){return s.layers.length>=2 && s.panels.length;});
+    if(!stages.length)return;
+    var ticking=false;
     function pick(){
-      var mid=window.innerHeight/2,best=0,bd=Infinity;
-      for(var i=0;i<panels.length;i++){var r=panels[i].getBoundingClientRect();var c=r.top+r.height/2;var d=Math.abs(c-mid);if(d<bd){bd=d;best=i;}}
-      if(best!==cur){cur=best;for(var j=0;j<layers.length;j++){layers[j].classList.toggle('on',j===(best%layers.length));}}
+      var mid=window.innerHeight/2;
+      stages.forEach(function(s){
+        var best=0,bd=Infinity;
+        for(var i=0;i<s.panels.length;i++){var r=s.panels[i].getBoundingClientRect();var c=r.top+r.height/2;var d=Math.abs(c-mid);if(d<bd){bd=d;best=i;}}
+        if(best!==s.cur){s.cur=best;for(var j=0;j<s.layers.length;j++){s.layers[j].classList.toggle('on',j===(best%s.layers.length));}}
+      });
       ticking=false;
     }
     function onScroll(){if(!ticking){ticking=true;requestAnimationFrame(pick);}}
@@ -1026,7 +1069,6 @@
       <a href="narrative-academy.html" class="btn btn-ghost-light">Explore Narrative Academy</a>
     </div>
   </div>
-  <div class="fc-wordmark" aria-hidden="true">Made for more.</div>
 </section>
 
 <!-- ===== FOOTER ===== -->
@@ -1143,5 +1185,6 @@
   })();
 
 </script>
+
 </body>
 </html>
