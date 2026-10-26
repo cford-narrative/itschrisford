@@ -109,7 +109,8 @@
   .hero h1 .caret{display:inline-block;width:3px;height:.82em;margin-left:4px;vertical-align:-0.06em;background:currentColor;color:var(--sky);animation:blink 1s steps(1) infinite}
   @keyframes blink{50%{opacity:0}}
   .hero .lede{margin-top:30px;max-width:600px;color:var(--cream-on-ink)}
-  .hero .hero-cred{position:relative;z-index:2;display:inline-flex;align-items:center;gap:8px;margin:0 0 26px;padding:9px 18px;border:1px solid rgba(255,255,255,.22);border-radius:999px;background:rgba(255,255,255,.07);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.82)}
+  .hero .hero-cred{position:relative;z-index:2;display:inline-block;text-align:center;margin:0 0 26px;padding:9px 20px;border:1px solid rgba(255,255,255,.22);border-radius:999px;background:rgba(255,255,255,.07);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.82);line-height:1.4;white-space:nowrap}
+  .hero-cred .cred-br{display:none}
   .hero .hero-cred em{font-style:italic;color:inherit;text-transform:uppercase;letter-spacing:inherit;font-weight:600}
   .hero .hero-cred a{text-decoration:none;transition:opacity .2s}
   .hero .hero-cred a:hover{opacity:.78}
@@ -328,6 +329,9 @@
     .nav-toggle{display:flex}
     .hero h1{font-size:clamp(40px,12vw,80px)}
     .hero .lede{font-size:16px;margin-top:24px}
+    .hero .hero-cred{white-space:normal;max-width:90vw}
+    .hero-cred .cred-br{display:block}
+    .hero-cred .cred-dot{display:none}
     .about{grid-template-columns:1fr}
     .about-text{padding:56px 24px}
     .about-text .name{font-size:62px}
@@ -410,7 +414,7 @@
     </video>
   </div>
   <div class="hero-overlay"></div>
-  <p class="hero-cred">Founder of The Narrative Companies&trade; · Author of <a href="https://www.amazon.com/How-Sell-Story-Message-Faster/dp/B0FV3L6LKT/" target="_blank" rel="noopener"><em>How to Sell with Story</em></a></p>
+  <p class="hero-cred">Founder of The Narrative Companies&trade;<span class="cred-dot"> &middot; </span><br class="cred-br">Author of <a href="https://www.amazon.com/How-Sell-Story-Message-Faster/dp/B0FV3L6LKT/" target="_blank" rel="noopener"><em>How to Sell with Story</em></a></p>
   <h1>Make your <span class="typed" id="typed"></span><span class="caret" id="caret"></span><br>impossible to ignore.</h1>
   <p class="lede">The science-backed revenue system for coaches & experts who want to scale their business without selling harder or shouting louder.</p>
   <div class="scroll">Scroll<span class="scroll-arrow" aria-hidden="true">&darr;</span></div>
